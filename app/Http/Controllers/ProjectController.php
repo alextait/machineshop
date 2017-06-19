@@ -12,11 +12,6 @@ class ProjectController extends Controller
     
     //
     public function getProjectHighlight(){
-
-        
-
-
-
         $displayItems = DB::table('displayitems')
              ->leftJoin('displayitemimage', function ($join) {
                     $join->on('displayitems.displayItemID', '=', 'displayitemimage.displayItemID')
@@ -27,15 +22,46 @@ class ProjectController extends Controller
              ->select('displayitems.*', 'displayitemimage.filename')
              ->get();
 
-// $users = DB::table('users')
-//             ->join('contacts', 'users.id', '=', 'contacts.user_id')
-//             ->join('orders', 'users.id', '=', 'orders.user_id')
-//             ->select('users.*', 'contacts.phone', 'orders.price')
-//             ->get();
-
-
         return view('project-highlight')->with('displayItems',  $displayItems);
     }
+
+
+
+    public function getSpecialProjects(){
+       
+        /*
+
+        $displayItems = DB::table('displayitems')
+             ->leftJoin('displayitemimage', function ($join) {
+                    $join->on('displayitems.displayItemID', '=', 'displayitemimage.displayItemID')
+                          ->where('displayitemimage.main', '=', 1);
+                })
+
+
+             ->select('displayitems.*', 'displayitemimage.filename')
+             ->get();*/
+
+       return view('view-projects');
+    }
+
+  public function getSpecialEffectsProjects(){
+       
+        /*
+
+        $displayItems = DB::table('displayitems')
+             ->leftJoin('displayitemimage', function ($join) {
+                    $join->on('displayitems.displayItemID', '=', 'displayitemimage.displayItemID')
+                          ->where('displayitemimage.main', '=', 1);
+                })
+
+
+             ->select('displayitems.*', 'displayitemimage.filename')
+             ->get();*/
+
+       return view('view-projects');
+    }
+
+
 
     /**
      * Display a listing of the resource.

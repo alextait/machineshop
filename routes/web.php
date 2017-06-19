@@ -13,9 +13,16 @@
 
 Route::get('/', 'ProjectController@getProjectHighlight');
 
+Route::get('/special-projects', 'ProjectController@getSpecialProjects');
+Route::get('/special-effects', 'ProjectController@getSpecialEffectsProjects');
+
 
 Route::get('/contact', 'StaticPagesController@getContact');
 Route::get('/hire', 'StaticPagesController@getHire');
+
+
+
+
 
 
 Route::get('/all-projects', function () {
@@ -23,21 +30,11 @@ Route::get('/all-projects', function () {
 });
 
 
-Route::get('/special-projects', function () {
-    return view('special-projects');
-});
+
 
 Route::get('/theatre-experiential', function () {
     return view('special-projects');
 });
-
-
-
-
-
-
-
-
 
 
 
