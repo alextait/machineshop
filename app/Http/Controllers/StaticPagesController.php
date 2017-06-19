@@ -10,17 +10,12 @@ class StaticPagesController extends Controller{
 
 	//
 	public function getHire(){
-		return view('welcome');
-	}
-
-	//
-	public function getNews(){
-		return view('welcome');
+		return view('hire');
 	}
 
 	//
 	public function getContact(){
-		return view('welcome');
+		return view('contact');
 	}
 
 }

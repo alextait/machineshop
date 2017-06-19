@@ -3,23 +3,39 @@
 namespace App\Http\Controllers;
 
 use App\Project;
+use App\DisplayItem;
 use DB;
 use Illuminate\Http\Request;
 
 class ProjectController extends Controller
 {
     
-
     //
     public function getProjectHighlight(){
-        //get project highlights
-        $results = DB::select('select * from displayitem ', array(1));
 
-        return view('project-highlight');
+        
+
+
+
+        $displayItems = DB::table('displayitems')
+             ->leftJoin('displayitemimage', function ($join) {
+                    $join->on('displayitems.displayItemID', '=', 'displayitemimage.displayItemID')
+                          ->where('displayitemimage.main', '=', 1);
+                })
+
+
+             ->select('displayitems.*', 'displayitemimage.filename')
+             ->get();
+
+// $users = DB::table('users')
+//             ->join('contacts', 'users.id', '=', 'contacts.user_id')
+//             ->join('orders', 'users.id', '=', 'orders.user_id')
+//             ->select('users.*', 'contacts.phone', 'orders.price')
+//             ->get();
+
+
+        return view('project-highlight')->with('displayItems',  $displayItems);
     }
-
-
-
 
     /**
      * Display a listing of the resource.

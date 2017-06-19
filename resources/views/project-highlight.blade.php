@@ -7,18 +7,29 @@
     <div class="swiper-container swiper-container-horizontal swiper-container-fade">
         <div class="swiper-wrapper" style="transition-duration: 0ms;">
 
-            <div class="swiper-slide swiper-slide-active" style="background-image: url('/img/article/media/screen-shot-2016-08-11-at-164319.png'); 
-            width: 1903px; ">
-                <div class="image-overlay"></div>
-                <div class="container">
-                    <div class="banner-text">
-                        <h2>Audi A4 Sport</h2>
-                        <p>Cooking Doughnuts &amp; Burning Rubber</p>
-                        <a href="http://www.machineshop.co.uk/special-projects/special-projects/audi-sport/" class="btn">View Project</a>
+         
+
+            @foreach($displayItems as $displayItem)
+
+                
+                <div class="swiper-slide swiper-slide-active" style="background-image: url('/img/article/media/{{$displayItem->filename}}');  width: 1903px; ">
+                    <div class="image-overlay"></div>
+                    <div class="container">
+                        <div class="banner-text">
+                            <h2>{{ $displayItem->heading }}</h2>
+                            <p>{{ $displayItem->subheading }}</p>
+                            <a href="http://www.machineshop.co.uk/special-projects/special-projects/audi-sport/" class="btn">
+                                View Project
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="swiper-slide swiper-slide-next" style="background-image: url('/img/article/media/screen-shot-2016-08-11-at-175625.jpg'); width: 1903px; ">
+               
+
+            @endforeach
+
+            
+            {{-- <div class="swiper-slide swiper-slide-next" style="background-image: url('/img/article/media/screen-shot-2016-08-11-at-175625.jpg'); width: 1903px; ">
                 <div class="image-overlay"></div>
                 <div class="container">
                     <div class="banner-text">
@@ -67,7 +78,7 @@
                             <a href="http://www.machineshop.co.uk/special-effects/pyrotechnics-atmospherics/sony-4k-tv-volcano-eruption/" class="btn">View Project</a>
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </div><!-- End swiper wrapper  -->
 
         <div class="swiper-pagination swiper-pagination-clickable">

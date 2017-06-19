@@ -19,7 +19,7 @@
                         <a href="/special-projects/">Special Projects</a>
                     </li>
                     <li>
-                        <a href="http://www.machineshop.co.uk/hire/">Hire</a>
+                        <a href="/hire/">Hire</a>
                     </li>
                     <li>
                         <a href="http://www.machineshop.co.uk/news/">News</a>
@@ -28,7 +28,7 @@
                         <a href="http://www.machineshop.co.uk/about-us/">About Us</a>
                     </li>
                     <li>
-                        <a href="http://www.machineshop.co.uk/contact/">Contact</a>
+                        <a href="/contact/">Contact</a>
                     </li>
                 </ul>
             </nav>

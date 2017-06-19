@@ -14,6 +14,10 @@
 Route::get('/', 'ProjectController@getProjectHighlight');
 
 
+Route::get('/contact', 'StaticPagesController@getContact');
+Route::get('/hire', 'StaticPagesController@getHire');
+
+
 Route::get('/all-projects', function () {
     return view('special-projects');
 });
