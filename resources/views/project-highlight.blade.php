@@ -7,7 +7,7 @@
     <div class="swiper-container swiper-container-horizontal swiper-container-fade">
         <div class="swiper-wrapper" style="transition-duration: 0ms;">
 
-            <div class="swiper-slide swiper-slide-active" style="background-image: url('/img/article/media/2268/screen-shot-2016-08-11-at-164319.png'); 
+            <div class="swiper-slide swiper-slide-active" style="background-image: url('/img/article/media/screen-shot-2016-08-11-at-164319.png'); 
             width: 1903px; ">
                 <div class="image-overlay"></div>
                 <div class="container">
@@ -18,7 +18,7 @@
                     </div>
                 </div>
             </div>
-            <div class="swiper-slide swiper-slide-next" style="background-image: url('/img/article/media/2276/screen-shot-2016-08-11-at-175625.jpg'); width: 1903px; ">
+            <div class="swiper-slide swiper-slide-next" style="background-image: url('/img/article/media/screen-shot-2016-08-11-at-175625.jpg'); width: 1903px; ">
                 <div class="image-overlay"></div>
                 <div class="container">
                     <div class="banner-text">
@@ -28,7 +28,7 @@
                     </div>
                 </div>
             </div>
-            <div class="swiper-slide" style="background-image: url('/img/article/media/2199/untitled-1.jpg'); width: 1903px; ">
+            <div class="swiper-slide" style="background-image: url('/img/article/media/untitled-1.jpg'); width: 1903px; ">
                 <div class="image-overlay"></div>
                 <div class="container">
                     <div class="banner-text">
@@ -38,7 +38,7 @@
                     </div>
                 </div>
             </div>
-            <div class="swiper-slide" style="background-image: url('/img/article/media/1936/6-jpeg.jpg'); width: 1903px; ">
+            <div class="swiper-slide" style="background-image: url('/img/article/media/6-jpeg.jpg'); width: 1903px; ">
                 <div class="image-overlay"></div>
                 <div class="container">
                     <div class="banner-text">
@@ -48,7 +48,7 @@
                     </div>
                 </div>
             </div>
-            <div class="swiper-slide" style="background-image: url('/img/article/media/1934/article-2304607-191b3207000005dc-411_964x588.jpg'); width: 1903px; ">
+            <div class="swiper-slide" style="background-image: url('/img/article/media/article-2304607-191b3207000005dc-411_964x588.jpg'); width: 1903px; ">
                 <div class="image-overlay"></div>
                 <div class="container">
                     <div class="banner-text">
@@ -58,7 +58,7 @@
                     </div>
                 </div>
             </div>
-            <div class="swiper-slide" style="background-image: url('/img/article/media/1003/banner-sony4k.jpg'); width: 1903px; ">
+            <div class="swiper-slide" style="background-image: url('/img/article/media/banner-sony4k.jpg'); width: 1903px; ">
                 <div class="image-overlay"></div>
                 <div class="container">
                     <div class="banner-text">

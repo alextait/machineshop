@@ -47,44 +47,8 @@
 
     <div class="wrapper">
                 
-        <header class="fixed-banner">
-            <div class="container">
-                <div class="mobile-btn menu-btn" id="nav-toggle">
-                    <span class="lines"></span>
-                </div>
-                <div class="logo">
-                    <a href="/">
-                        <img src="{{asset('img/logo.png')}}">
-                        <span class="logo-text">Machineshop</span>
-                    </a>
-                </div>
-                <div class="navigation" id="menu"> 
-                    <nav>
-                        <ul>
-                            <li>
-                                <a href="http://www.machineshop.co.uk/special-effects/">Special Effects</a>
-                            </li>
-                            <li>
-                                <a href="http://www.machineshop.co.uk/special-projects/">Special Projects</a>
-                            </li>
-                            <li>
-                                <a href="http://www.machineshop.co.uk/hire/">Hire</a>
-                            </li>
-                            <li>
-                                <a href="http://www.machineshop.co.uk/news/">News</a>
-                            </li>
-                            <li>
-                                <a href="http://www.machineshop.co.uk/about-us/">About Us</a>
-                            </li>
-                            <li>
-                                <a href="http://www.machineshop.co.uk/contact/">Contact</a>
-                            </li>
-                        </ul>
-                    </nav>
-
-                </div>
-            </div>
-        </header>
+    
+        @include('partials.header')
 
       	@yield('content')
     
@@ -128,32 +92,12 @@
 	    </footer>
 	</div>
 
-
-
     <style>
 
     </style>
 
 
     <script type="text/javascript" src="{{asset('js/app.js')}}"></script>
-    
-    <script>
-         var mySwiper = new Swiper ('.swiper-container', {
-            // Optional parameters
-            direction: 'horizontal',
-            loop: true,
-            
-            // If we need pagination
-            pagination: '.swiper-pagination'
-            ,paginationClickable: true
-            
-            // Navigation arrows
-            //nextButton: '.swiper-button-next',
-            //prevButton: '.swiper-button-prev',
-            
-            // And if we need scrollbar
-            //,scrollbar: '.swiper-scrollbar'
-          })        
-    </script>
+
 </body>
 </html>

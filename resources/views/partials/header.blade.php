@@ -13,10 +13,10 @@
             <nav>
                 <ul>
                     <li>
-                        <a href="http://www.machineshop.co.uk/special-effects/">Special Effects</a>
+                        <a href="/special-effects/">Special Effects</a>
                     </li>
                     <li>
-                        <a href="http://www.machineshop.co.uk/special-projects/">Special Projects</a>
+                        <a href="/special-projects/">Special Projects</a>
                     </li>
                     <li>
                         <a href="http://www.machineshop.co.uk/hire/">Hire</a>

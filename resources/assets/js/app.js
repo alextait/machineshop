@@ -9,6 +9,11 @@ require('./bootstrap');
 
 require('swiper');
 
+
+require('./global');
+
+
+
 /*
 window.Vue = require('vue');
 */

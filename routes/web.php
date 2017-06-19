@@ -11,9 +11,33 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', 'ProjectController@getProjectHighlight');
+
+
+Route::get('/all-projects', function () {
+    return view('special-projects');
 });
+
+
+Route::get('/special-projects', function () {
+    return view('special-projects');
+});
+
+Route::get('/theatre-experiential', function () {
+    return view('special-projects');
+});
+
+
+
+
+
+
+
+
+
+
+
+
 
 Route::get('/test', function () {
     return view('test');
