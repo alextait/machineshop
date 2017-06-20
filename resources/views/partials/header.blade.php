@@ -9,25 +9,27 @@
                 <span class="logo-text">Machineshop</span>
             </a>
         </div>
+
+
         <div class="navigation" id="menu"> 
             <nav>
                 <ul>
-                    <li>
+                    <li class="{{ Request::path() ==  'special-effects' ? 'active' : ''  }}">
                         <a href="/special-effects/">Special Effects</a>
                     </li>
-                    <li>
+                    <li class="{{ Request::path() ==  'special-projects' ? 'active' : ''  }}">
                         <a href="/special-projects/">Special Projects</a>
                     </li>
-                    <li>
+                    <li class="{{ Request::path() ==  'hire' ? 'active' : ''  }}">
                         <a href="/hire/">Hire</a>
                     </li>
-                    <li>
-                        <a href="/news/">News</a>
+                    <li class="{{ Request::path() ==  'news' ? 'active' : ''  }}" >
+                        <a  href="/news/">News</a>
                     </li>
-                    <li>
+                    <li class="{{ Request::path() ==  'about' ? 'active' : ''  }}">
                         <a href="/about/">About Us</a>
                     </li>
-                    <li>
+                    <li class="{{ Request::path() ==  'contact' ? 'active' : ''  }}">
                         <a href="/contact/">Contact</a>
                     </li>
                 </ul>

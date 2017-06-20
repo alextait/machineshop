@@ -22,7 +22,10 @@ class ProjectController extends Controller
              ->select('displayitems.*', 'displayitemimage.filename')
              ->get();
 
-        return view('project-highlight')->with('displayItems',  $displayItems);
+        return view('project-highlight')
+            ->with('displayItems',  $displayItems)
+            ->with('pagename', 'highlight')
+            ;
     }
 
 
@@ -76,7 +79,7 @@ class ProjectController extends Controller
              ->select('displayitems.*', 'displayitemimage.filename')
              ->get();*/
 
-       return view('news');
+       return view('news') ->with('pagelink', 'news');
     }
 
     public function getAbout(){
