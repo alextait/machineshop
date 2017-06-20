@@ -13,7 +13,7 @@ class CreateDisplayItemsTable extends Migration
      */
     public function up()
     {
-        Schema::create('displayitems', function (Blueprint $table) {
+        Schema::create('displayitem', function (Blueprint $table) {
             $table->increments('displayItemID');
             $table->timestamps();
             $table->string('heading')->default('');
@@ -30,6 +30,6 @@ class CreateDisplayItemsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('displayitems');
+        Schema::dropIfExists('displayitem');
     }
 }

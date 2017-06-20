@@ -1208,8 +1208,8 @@ footer .address ul li:first-child {
 
 header {
   width: 100%;
-  padding-top: 6px;
-  padding-bottom: 6px;
+  
+  margin-bottom: 6px;
   height: 60px;
   position: relative;
   z-index: 10;
@@ -1228,6 +1228,7 @@ header {
     display: block;
     margin-right: 1.35446%;
     width: 32.43036%;
+    margin-top:15px;
   }
   header .logo:last-child {
     margin-right: 0;
@@ -1536,25 +1537,28 @@ header .menu-btn {
   overflow: hidden;
   list-style: none;
 }
-.pagination li {
-  float: left;
-  margin-left: 15px;
-  min-height: 30px;
-  background-color: #282727;
+
+.pagination > li.active {
+  background-color: #91AA9D  !important;
 }
-.pagination li.active {
-  background-color: #91AA9D;
-}
-.pagination a {
-  display: block;
-  padding: 5px 8px;
-  color: white;
-  text-decoration: none;
-}
-.pagination span {
-  margin-top: 3px;
+
+
+.pagination> li > span, .pagination > li > a {
+  /*margin-top: 3px;*/
   display: block;
   font-size: 14px;
+  border:0 !important;
+  background-color: #282727 !important;
+  padding:4px 8px !important;
+  color: white;
+    margin-left: 15px;
+}
+
+.pagination > .active > span {
+  /*margin-top: 3px;*/
+  background-color: #282727 !important;
+  border:0;
+  color: grey;
 }
 
 .page-pagination {

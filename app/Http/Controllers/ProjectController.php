@@ -9,11 +9,8 @@ use Illuminate\Http\Request;
 
 class ProjectController extends Controller
 {
-
-
     
     //
-
     public function getProjectHighlight(){
         $displayItems = DB::table('displayitems')
              ->leftJoin('displayitemimage', function ($join) {
@@ -24,7 +21,6 @@ class ProjectController extends Controller
                     $join->on('displayitemtocategory.displayItemID', '=', 'displayitems.displayItemID')
                           ->where('displayitemtocategory.categoryid', '=', 10);
                 })
-
              ->select('displayitems.*', 'displayitemimage.filename')
              ->get();
 
@@ -36,7 +32,6 @@ class ProjectController extends Controller
 
     public function getSpecialProjects($categoryid){
         $aboutSection = 'Machine Shop have been developing and creating interactive and one off creations for as long as we can remember. Our Special Projects division was founded to make use of our diverse knowledge and experience. From the smallest visual detail to the most complex mechanical system we offer a complete service to bring your crazy ideas to life. Each project is considered to make the most of the creative idea whilst maintaining realism in budgeting. From initial ideas through 3D CAD, modelling, prototyping, software development and soak testing to complete production runs, our team are simply unfazed by the impossible.' ;   
-
         $subCategoryItems  =  $this->getSubCategoryItems(9);
 
        return  $this->getProjectList('Special Projects', 'special-projects', $aboutSection, $categoryid, $subCategoryItems  );
@@ -45,7 +40,6 @@ class ProjectController extends Controller
     public function getSubCategoryItems($categoryid){
             //get any sub categories for the specials
         $subCategoryItems = DB::table('displayitemtree')
-            
            	->join('displayitemtocategory', 'displayitemtocategory.categoryid', '=', 'displayitemtree.childid')
            	->join('displayitemcategory', 'displayitemtocategory.categoryid', '=', 'displayitemcategory.categoryid')
            	->select('displayitemtree.childid, displayitemtocategory.category , displayitemtocategory.categoryid ')
@@ -55,9 +49,7 @@ class ProjectController extends Controller
 
     public function getSpecialEffectsProjects($categoryid){
         $aboutSection = 'Machine Shop Special Effects provides a range of live atmospheric and pyrotechnic floor-effects with our reliable and experienced team of technicians. We also offer superior modelmaking and animatronics services from our team of in-house specialists.' ;   
-
     	$subCategoryItems  =  $this->getSubCategoryItems(4);
-
        	return  $this->getProjectList('Special Effects', 'special-effects', $aboutSection, $categoryid , $subCategoryItems);
     }
 
@@ -71,15 +63,12 @@ class ProjectController extends Controller
             ->select('displayitems.*')
             ->paginate(10);
 
-
        return view('view-projects')
             ->with('displayItems', $displayItems)
             ->with('pagename',  $pagename)
             ->with('pagetitle',  $pagetitle)
             ->with('aboutSection', $aboutSection)
-            ->with('subCategoryItems', $subCategoryItems);
-
-            
+            ->with('subCategoryItems', $subCategoryItems); 
     }
 
     public function getViewProject($displayitemid){
@@ -87,22 +76,17 @@ class ProjectController extends Controller
             ->where('displayitems.displayitemid', '=', $displayitemid)
             ->select('displayitems.*')
             ->first();
-        
-
         return view('view-project') 
             ->with('displayItem', $displayItem);
     }
 
     public function getNews(){
-       
        return view('news') ->with('pagelink', 'news');
     }
 
     public function getAbout(){
-       
        return view('about');
     }
-
 
     /**
      * Display a listing of the resource.
@@ -132,8 +116,11 @@ class ProjectController extends Controller
      */
     public function store(Request $request){
         
-                var_dump($request->header);
-                exit();
+
+        
+        
+        var_dump($request->heading);
+        exit();
 
     }
 

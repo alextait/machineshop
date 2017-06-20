@@ -49,6 +49,8 @@ class PopulateDatabase
 
     public function populateDisplayItemData(){
 
+
+
          // Highlight projects
         $DisplayItem = new DisplayItem();
         $DisplayItem->displayitemid = 1;

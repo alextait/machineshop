@@ -12,6 +12,8 @@
             </h1>
             
             <form class="form" action="/displayitem/store" method="post">
+            
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <div class="row">
                     <div class="col-md-6">
                             <label for="displayitemcategory" />Select Item Type</label>    
