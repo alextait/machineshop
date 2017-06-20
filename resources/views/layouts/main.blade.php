@@ -45,7 +45,7 @@
 
 <body class="home menu-push">
 
-    <div class="wrapper">
+    <div class="wrapper gradient-background">
                 
     
         @include('partials.header')

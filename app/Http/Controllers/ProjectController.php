@@ -62,6 +62,42 @@ class ProjectController extends Controller
     }
 
 
+    public function getNews(){
+       
+        /*
+
+        $displayItems = DB::table('displayitems')
+             ->leftJoin('displayitemimage', function ($join) {
+                    $join->on('displayitems.displayItemID', '=', 'displayitemimage.displayItemID')
+                          ->where('displayitemimage.main', '=', 1);
+                })
+
+
+             ->select('displayitems.*', 'displayitemimage.filename')
+             ->get();*/
+
+       return view('news');
+    }
+
+    public function getAbout(){
+       
+        /*
+
+        $displayItems = DB::table('displayitems')
+             ->leftJoin('displayitemimage', function ($join) {
+                    $join->on('displayitems.displayItemID', '=', 'displayitemimage.displayItemID')
+                          ->where('displayitemimage.main', '=', 1);
+                })
+
+
+             ->select('displayitems.*', 'displayitemimage.filename')
+             ->get();*/
+
+       return view('about');
+    }
+
+
+
 
     /**
      * Display a listing of the resource.

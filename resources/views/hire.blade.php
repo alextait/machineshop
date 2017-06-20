@@ -4,16 +4,8 @@
 @section('content')
 
         
-<section>
-    <div class="container">
-        
-
-        <ul class="breadcrumb">
-            
-            <li><a href="/">Machine Shop</a> <span class="divider">></span></li>
-
-            <li class="active">Hire</li>
-        </ul>
+<section  class="">
+    <div class="container " >
 
         <h1 class="center">Hire</h1>
 

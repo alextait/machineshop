@@ -12,33 +12,20 @@
 */
 
 Route::get('/', 'ProjectController@getProjectHighlight');
-
 Route::get('/special-projects', 'ProjectController@getSpecialProjects');
 Route::get('/special-effects', 'ProjectController@getSpecialEffectsProjects');
-
-
-Route::get('/contact', 'StaticPagesController@getContact');
 Route::get('/hire', 'StaticPagesController@getHire');
-
-
-
-
-
+Route::get('/news', 'ProjectController@getNews');
+Route::get('/about', 'ProjectController@getAbout');
+Route::get('/contact', 'StaticPagesController@getContact');
 
 Route::get('/all-projects', function () {
     return view('special-projects');
 });
 
-
-
-
 Route::get('/theatre-experiential', function () {
     return view('special-projects');
 });
-
-
-
-
 
 Route::get('/test', function () {
     return view('test');

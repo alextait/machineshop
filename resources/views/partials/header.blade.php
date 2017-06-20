@@ -22,10 +22,10 @@
                         <a href="/hire/">Hire</a>
                     </li>
                     <li>
-                        <a href="http://www.machineshop.co.uk/news/">News</a>
+                        <a href="/news/">News</a>
                     </li>
                     <li>
-                        <a href="http://www.machineshop.co.uk/about-us/">About Us</a>
+                        <a href="/about/">About Us</a>
                     </li>
                     <li>
                         <a href="/contact/">Contact</a>

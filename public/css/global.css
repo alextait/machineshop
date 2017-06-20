@@ -1,3 +1,10 @@
+
+.gradient-background{
+    background-image: url('/img/background-website.png');
+    background-position: 0px -300px;
+}
+
+
 html {
   box-sizing: border-box;
 }

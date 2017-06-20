@@ -5,22 +5,13 @@
 
 
 <style>
-.wrapper{
-    background-image: url('/img/background-website.png');
-    
-}
+
 </style>
 
 
 <section>
     <div class="container">
         
-
-    <ul class="breadcrumb">
-        <li><a href="/">Machine Shop</a> <span class="divider">></span></li>
-        <li class="active">Special Projects</li>
-    </ul>
-
      <h1 class="center">Special Projects</h1>
 
         <div class="mobile-btn-subnav" id="subnav-toggle">Menu</div>
