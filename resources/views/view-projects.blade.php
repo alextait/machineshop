@@ -8,7 +8,6 @@
 
 </style>
 
-
 <section>
     <div class="container">
         
@@ -20,12 +19,28 @@
                 <li class="active">
                     <a href="/all-projects/">All Projects</a>
                 </li>
-                <li>
-                    <a href="/special-projects/">Special Projects</a>
-                </li>
-                <li>
-                    <a href="/theatre-experiential/">Theatre &amp; Experiential</a>
-                </li>
+
+
+
+              {{var_dump($subCategoryItems -> count())}}
+
+
+                @foreach($subCategoryItems as $subCategoryItem)
+
+                    {{var_dump('TETS')}}
+                 
+
+                   {{-- 
+                    <div class="project-column">
+                        <li>
+                            <a href="/special-projects/">Tet</a>
+                        </li>
+                    </div>
+ --}}
+                @endforeach
+
+                
+              
             </ul>
         </nav>
 
@@ -43,32 +58,22 @@
             @foreach($displayItems as $displayItem)
 
                 <div class="project-column">
-                     <a href="/viewproject/{{ $displayItem->displayItemID }}/" class="project-box">
+                     <a href="/view-project/{{ $displayItem->displayItemID }}/" class="project-box">
                         <img src="/img/article/{{ $displayItem->displayItemID }}/square.jpg" alt="project-name" />
                         <h4 class="image-overlay-title">{{ $displayItem->heading }}</h4>
                     </a>
                 </div>
 
-                
-               {{--  <div class="swiper-slide swiper-slide-active" style="background-image: url('/img/article/media/{{$displayItem->filename}}');  width: 1903px; ">
-                    <div class="image-overlay"></div>
-                    <div class="container">
-                        <div class="banner-text">
-                            <h2>{{ $displayItem->heading }}</h2>
-                            <p>{{ $displayItem->subheading }}</p>
-                            <a href="http://www.machineshop.co.uk/special-projects/special-projects/audi-sport/" class="btn">
-                                View Project
-                            </a>
-                        </div>
-                    </div>
-                </div> --}}
-               
-
             @endforeach
             
         </div>
 
-        <div class="pagination-wrapper">
+        <div class="text-right ">
+            {!! $displayItems->links() !!}
+        </div>
+
+
+      {{--   <div class="pagination-wrapper">
             <ul class="pagination" role="pagination">
                 
 
@@ -80,7 +85,7 @@
                     <li><a class="next-page" href="?page=2"><span class="icon-chevron-right"></span></a></li>
 
             </ul>
-        </div>
+        </div> --}}
 
     </div>
 </section>

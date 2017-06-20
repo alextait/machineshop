@@ -9,8 +9,11 @@ use Illuminate\Http\Request;
 
 class ProjectController extends Controller
 {
+
+
     
     //
+
     public function getProjectHighlight(){
         $displayItems = DB::table('displayitems')
              ->leftJoin('displayitemimage', function ($join) {
@@ -31,28 +34,42 @@ class ProjectController extends Controller
             ;
     }
 
-
     public function getSpecialProjects($categoryid){
         $aboutSection = 'Machine Shop have been developing and creating interactive and one off creations for as long as we can remember. Our Special Projects division was founded to make use of our diverse knowledge and experience. From the smallest visual detail to the most complex mechanical system we offer a complete service to bring your crazy ideas to life. Each project is considered to make the most of the creative idea whilst maintaining realism in budgeting. From initial ideas through 3D CAD, modelling, prototyping, software development and soak testing to complete production runs, our team are simply unfazed by the impossible.' ;   
-       return  $this->getProjectList('Special Projects', 'special-projects', $aboutSection, $categoryid );
 
+        $subCategoryItems  =  $this->getSubCategoryItems(9);
 
-       return view('view-projects');
+       return  $this->getProjectList('Special Projects', 'special-projects', $aboutSection, $categoryid, $subCategoryItems  );
     }
 
-  public function getSpecialEffectsProjects($categoryid){
-         
+    public function getSubCategoryItems($categoryid){
+            //get any sub categories for the specials
+        $subCategoryItems = DB::table('displayitemtree')
+            
+           	->join('displayitemtocategory', 'displayitemtocategory.categoryid', '=', 'displayitemtree.childid')
+           	->join('displayitemcategory', 'displayitemtocategory.categoryid', '=', 'displayitemcategory.categoryid')
+           	->select('displayitemtree.childid, displayitemtocategory.category , displayitemtocategory.categoryid ')
+           	->where('displayitemtree.parentid', '=', $categoryid);
+        return  $subCategoryItems;
+     }   
+
+    public function getSpecialEffectsProjects($categoryid){
         $aboutSection = 'Machine Shop Special Effects provides a range of live atmospheric and pyrotechnic floor-effects with our reliable and experienced team of technicians. We also offer superior modelmaking and animatronics services from our team of in-house specialists.' ;   
-       return  $this->getProjectList('Special Effects', 'special-effects', $aboutSection, $categoryid );
+
+    	$subCategoryItems  =  $this->getSubCategoryItems(4);
+
+       	return  $this->getProjectList('Special Effects', 'special-effects', $aboutSection, $categoryid , $subCategoryItems);
     }
 
-    public function getProjectList($pagetitle, $pagename, $aboutSection, $categoryid){
+
+    public function getProjectList($pagetitle, $pagename, $aboutSection, $categoryid, $subCategoryItems){
        
         $displayItems = DB::table('displayitems')
-            ->select('displayitems.*')
+           
             ->join('displayitemtocategory' , 'displayitemtocategory.displayItemID', '=', 'displayitems.displayItemID')
             ->whereRaw("displayitemtocategory.categoryid = ? OR displayitemtocategory.categoryid IN (SELECT childid FROM displayitemtree WHERE parentid = ?)" ,  [$categoryid,$categoryid ])
-            ->get();  
+            ->select('displayitems.*')
+            ->paginate(10);
 
 
        return view('view-projects')
@@ -60,49 +77,31 @@ class ProjectController extends Controller
             ->with('pagename',  $pagename)
             ->with('pagetitle',  $pagetitle)
             ->with('aboutSection', $aboutSection)
-            ;
+            ->with('subCategoryItems', $subCategoryItems);
 
-
+            
     }
 
+    public function getViewProject($displayitemid){
+        $displayItem = DB::table('displayitems')
+            ->where('displayitems.displayitemid', '=', $displayitemid)
+            ->select('displayitems.*')
+            ->first();
+        
 
-
+        return view('view-project') 
+            ->with('displayItem', $displayItem);
+    }
 
     public function getNews(){
        
-        /*
-
-        $displayItems = DB::table('displayitems')
-             ->leftJoin('displayitemimage', function ($join) {
-                    $join->on('displayitems.displayItemID', '=', 'displayitemimage.displayItemID')
-                          ->where('displayitemimage.main', '=', 1);
-                })
-
-
-             ->select('displayitems.*', 'displayitemimage.filename')
-             ->get();*/
-
        return view('news') ->with('pagelink', 'news');
     }
 
     public function getAbout(){
        
-        /*
-
-        $displayItems = DB::table('displayitems')
-             ->leftJoin('displayitemimage', function ($join) {
-                    $join->on('displayitems.displayItemID', '=', 'displayitemimage.displayItemID')
-                          ->where('displayitemimage.main', '=', 1);
-                })
-
-
-             ->select('displayitems.*', 'displayitemimage.filename')
-             ->get();*/
-
        return view('about');
     }
-
-
 
 
     /**
@@ -120,9 +119,9 @@ class ProjectController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
+    public function create(){
+        
+      return view('admindisplayitem');
     }
 
     /**
@@ -131,9 +130,11 @@ class ProjectController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
+    public function store(Request $request){
+        
+                var_dump($request->header);
+                exit();
+
     }
 
     /**

@@ -18,6 +18,7 @@
     "lodash": "^4.17.4"
   },
   "dependencies": {
+    "modal": "^1.2.0",
     "swiper": "^3.4.2"
   }
 }

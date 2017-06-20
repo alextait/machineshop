@@ -12,10 +12,13 @@
 */
 
 Route::get('/', 'ProjectController@getProjectHighlight');
+
+
 Route::get('/special-projects/{categoryid}', ['uses' =>'ProjectController@getSpecialProjects'] );
-
-
 Route::get('/special-effects/{categoryid}',  ['uses' =>'ProjectController@getSpecialEffectsProjects'] );
+
+Route::get('/view-project/{displayitemid}',  ['uses' =>'ProjectController@getViewProject'] );
+
 
 
 Route::get('/hire', 'StaticPagesController@getHire');
@@ -23,17 +26,10 @@ Route::get('/news', 'ProjectController@getNews');
 Route::get('/about', 'ProjectController@getAbout');
 Route::get('/contact', 'StaticPagesController@getContact');
 
+Route::get('/admin-display-item/{displayitemid}',  ['uses' =>'ProjectController@create'] ); 
+Route::get('/create-display-item/',  ['uses' =>'ProjectController@create'] ); 
+
+Route::post('/displayitem/store/',  ['uses' =>'ProjectController@store'] ); 
+
 Route::get('/populatedata', 'MainController@populateData');
 
-
-Route::get('/all-projects', function () {
-    return view('special-projects');
-});
-
-Route::get('/theatre-experiential', function () {
-    return view('special-projects');
-});
-
-Route::get('/test', function () {
-    return view('test');
-});

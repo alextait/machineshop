@@ -12,13 +12,13 @@
             @foreach($displayItems as $displayItem)
 
                 
-                <div class="swiper-slide swiper-slide-active" style="background-image: url('/img/article/media/{{$displayItem->filename}}');  width: 1903px; ">
+                <div class="swiper-slide swiper-slide-active" style="background-image: url('/img/article/{{$displayItem->displayItemID}}/big.jpg');  width: 1903px; ">
                     <div class="image-overlay"></div>
                     <div class="container">
                         <div class="banner-text">
                             <h2>{{ $displayItem->heading }}</h2>
                             <p>{{ $displayItem->subheading }}</p>
-                            <a href="http://www.machineshop.co.uk/special-projects/special-projects/audi-sport/" class="btn">
+                            <a href="/view-project/{{$displayItem->displayItemID}}/" class="btn">
                                 View Project
                             </a>
                         </div>
