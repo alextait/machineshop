@@ -9,16 +9,14 @@
                 <span class="logo-text">Machineshop</span>
             </a>
         </div>
-
-
         <div class="navigation" id="menu"> 
             <nav>
-                <ul>
-                    <li class="{{ Request::path() ==  'special-effects' ? 'active' : ''  }}">
-                        <a href="/special-effects/">Special Effects</a>
+                <ul>                   
+                    <li class="{{ strpos(Request::path(), 'special-effects') !== false ? 'active' : ''  }}">
+                        <a href="/special-effects/4/">Special Effects</a>
                     </li>
-                    <li class="{{ Request::path() ==  'special-projects' ? 'active' : ''  }}">
-                        <a href="/special-projects/">Special Projects</a>
+                    <li class="{{ strpos(Request::path(), 'special-projects') !== false ? 'active' : ''  }}">
+                        <a href="/special-projects/9/">Special Projects</a>
                     </li>
                     <li class="{{ Request::path() ==  'hire' ? 'active' : ''  }}">
                         <a href="/hire/">Hire</a>
@@ -34,7 +32,6 @@
                     </li>
                 </ul>
             </nav>
-
         </div>
     </div>
 </header>

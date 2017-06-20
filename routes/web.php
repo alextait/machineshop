@@ -12,12 +12,19 @@
 */
 
 Route::get('/', 'ProjectController@getProjectHighlight');
-Route::get('/special-projects', 'ProjectController@getSpecialProjects');
-Route::get('/special-effects', 'ProjectController@getSpecialEffectsProjects');
+Route::get('/special-projects/{categoryid}', ['uses' =>'ProjectController@getSpecialProjects'] );
+
+
+Route::get('/special-effects/{categoryid}',  ['uses' =>'ProjectController@getSpecialEffectsProjects'] );
+
+
 Route::get('/hire', 'StaticPagesController@getHire');
 Route::get('/news', 'ProjectController@getNews');
 Route::get('/about', 'ProjectController@getAbout');
 Route::get('/contact', 'StaticPagesController@getContact');
+
+Route::get('/populatedata', 'MainController@populateData');
+
 
 Route::get('/all-projects', function () {
     return view('special-projects');

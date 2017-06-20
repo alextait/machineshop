@@ -17,6 +17,7 @@ class CreateDisplayitemtree extends Migration
             $table->integer('parentid');
             $table->integer('childid');
             $table->unique(['childid', 'parentid']);
+            $table->timestamps();
         });
     }
 

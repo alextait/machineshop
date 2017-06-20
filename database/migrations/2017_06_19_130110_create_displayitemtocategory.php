@@ -17,6 +17,7 @@ class CreateDisplayitemtocategory extends Migration
             $table->integer('categoryid');
             $table->integer('displayitemid');
             $table->unique(['categoryid', 'displayitemid']);
+            $table->timestamps();
         });
     }
 

@@ -22,26 +22,7 @@ class CreateDisplayitemimage extends Migration
             $table->timestamps();
         });
 
-        // Insert some stuff
-        $DisplayItem = new DisplayItemImage();
-        $DisplayItem->filename = 'screen-shot-2016-08-11-at-164319.png';
-        $DisplayItem->main = true;
-        $DisplayItem->displayitemID = 1;
-        $DisplayItem->save();
 
-        // Insert some stuff
-        $DisplayItem = new DisplayItemImage();
-        $DisplayItem->filename = 'untitled-1.jpg';
-        $DisplayItem->main = true;
-        $DisplayItem->displayitemID = 2;
-        $DisplayItem->save();
-
-        // Insert some stuff
-        $DisplayItem = new DisplayItemImage();
-        $DisplayItem->filename = '6-jpeg.jpg';
-        $DisplayItem->main = true;
-        $DisplayItem->displayitemID = 3;
-        $DisplayItem->save();
 
     }
 
