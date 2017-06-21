@@ -8,12 +8,13 @@
         <section>
             
             <h1>
-                Add Display Item
+                Add Project
             </h1>
-            
-            <form class="form" action="/displayitem/store" method="post">
-            
+        
+            <form method="POST" action="/displayitem" accept-charset="UTF-8"><input name="_token" type="hidden" value="{{ csrf_token() }}">
+
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
+
                 <div class="row">
                     <div class="col-md-6">
                             <label for="displayitemcategory" />Select Item Type</label>    
@@ -35,9 +36,6 @@
                             <label for="youtubelink" />Youtube Link</label>
                             <input type="text" class="form-control" name="youtubelink" placeholder="Enter your youtube URL here" />
                            
-
-
-
                             <label class=" btn-file">
                                 Select Large Image <input type="file" hidden>
                             </label>

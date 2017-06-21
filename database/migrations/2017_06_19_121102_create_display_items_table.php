@@ -14,11 +14,11 @@ class CreateDisplayItemsTable extends Migration
     public function up()
     {
         Schema::create('displayitem', function (Blueprint $table) {
-            $table->increments('displayItemID');
+            $table->increments('displayitemid');
             $table->timestamps();
             $table->string('heading')->default('');
-            $table->string('subheading')->default('');
-            $table->string('youtubelink')->default('');
+            $table->string('subheading')->nullable();
+            $table->string('youtubelink')->nullable();
             $table->text('detail')->nullable();
         });
     }

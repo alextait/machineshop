@@ -58,8 +58,8 @@
             @foreach($displayItems as $displayItem)
 
                 <div class="project-column">
-                     <a href="/view-project/{{ $displayItem->displayItemID }}/" class="project-box">
-                        <img src="/img/article/{{ $displayItem->displayItemID }}/square.jpg" alt="project-name" />
+                     <a href="/view-project/{{ $displayItem->displayitemid }}/" class="project-box">
+                        <img src="/img/article/{{ $displayItem->displayitemid }}/square.jpg" alt="project-name" />
                         <h4 class="image-overlay-title">{{ $displayItem->heading }}</h4>
                     </a>
                 </div>

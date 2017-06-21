@@ -36,20 +36,26 @@ class DisplayItemController extends Controller
      */
     public function store(Request $request)
     {
-        
-         var_dump('sdf');
-         exit($request->heading);
-
+  
 
         //Validate
         $this->validate($request, array(
                 'heading' => 'required|max:255'
-            ));
-   
-        //Store
 
-        //Redirect
+            ));
+        //Store
+        $displayItem = new DisplayItem;
+        $displayItem->heading = $request->heading;
+        $displayItem->subheading = $request->subheading;
+        $displayItem->detail = $request->detail;
+        $displayItem->youtubelink = $request->youtubelink;
+
+        $displayItem->save();
+
+        //Redirect to the edit page just in case they wish to edit the item they just added
+        return redirect()->route('displayitem.edit', $displayItem->id);
     }
+
 
     /**
      * Display the specified resource.
@@ -57,8 +63,11 @@ class DisplayItemController extends Controller
      * @param  \App\DisplayItem  $displayItem
      * @return \Illuminate\Http\Response
      */
-    public function show(DisplayItem $displayItem)
+    public function show($displayItemID)
     {
+        var_dump('SHOW');
+        exit();
+
         //
     }
 
@@ -68,9 +77,14 @@ class DisplayItemController extends Controller
      * @param  \App\DisplayItem  $displayItem
      * @return \Illuminate\Http\Response
      */
-    public function edit(DisplayItem $displayItem)
+    public function edit($displayItemID)
     {
-        //
+        //Get post
+        $displayItem = DisplayItem::find($displayItemID);
+        
+        //Return the view and pass in the item
+        return view('displayitem.edit')
+            ->with('displayItem', $displayItem);
     }
 
     /**
