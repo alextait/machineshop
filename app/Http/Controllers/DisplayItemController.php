@@ -15,6 +15,11 @@ class DisplayItemController extends Controller
     public function index()
     {
         //
+       // $DisplayItems = DisplayItem::orderBy('displayitemid', 'desc');
+        $DisplayItems = DisplayItem::all();
+ 
+
+        return view('displayitem.index')->with('DisplayItems', $DisplayItems);
     }
 
     /**
@@ -36,7 +41,6 @@ class DisplayItemController extends Controller
      */
     public function store(Request $request)
     {
-  
 
         //Validate
         $this->validate($request, array(
@@ -63,7 +67,7 @@ class DisplayItemController extends Controller
      * @param  \App\DisplayItem  $displayItem
      * @return \Illuminate\Http\Response
      */
-    public function show($displayItemID)
+    public function show($displayitemid)
     {
         var_dump('SHOW');
         exit();
@@ -77,10 +81,10 @@ class DisplayItemController extends Controller
      * @param  \App\DisplayItem  $displayItem
      * @return \Illuminate\Http\Response
      */
-    public function edit($displayItemID)
+    public function edit($displayitemid)
     {
         //Get post
-        $displayItem = DisplayItem::find($displayItemID);
+        $displayItem = DisplayItem::find($displayitemid);
         
         //Return the view and pass in the item
         return view('displayitem.edit')

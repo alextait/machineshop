@@ -7,7 +7,7 @@
         <section>
             
             <h1>
-                Edit Project {{$displayItem->displayItemID}} 
+                Edit Project {{$displayItem->displayitemid}} 
             </h1>
         
             <form method="POST" action="/displayitem" accept-charset="UTF-8"><input name="_token" type="hidden" value="{{ csrf_token() }}">
@@ -42,7 +42,9 @@
                             Select Large Image <input type="file" hidden>
                         </label>
 
+                       
                         <img src="/img/article/{{$displayItem->displayitemid}}/square.jpg" />
+                        
                         <label class=" btn-file">
                             Select Medium Image (640 x 310 pixels)<input type="file" hidden>
                         </label>
