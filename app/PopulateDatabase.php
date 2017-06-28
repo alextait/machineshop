@@ -103,7 +103,7 @@ class PopulateDatabase
         $Project->id = 4;
         $Project->heading = 'Schwartz';
         $Project->subheading = 'Who said food and Pyro&#39;s dont mix?';
-        $Project->youtubelink = '????????';
+        $Project->youtubelink = 'https://youtu.be/wNPIL90NYZc';
         $Project->detail = "<p>Sacks of herbs and spices were detonated with phenomenally accurate timing for this advert, whilst being filmed at speeds of up to 2000 fps.</p>
         <p>Each explosion had to fit a sequence which, when slowed down, would exactly match a piece of specially composed music, as well as the movements of a motion control camera.</p>";
        
@@ -118,7 +118,7 @@ class PopulateDatabase
         $Project->id = 5;
         $Project->heading = 'Adidas';
         $Project->subheading = 'The Chelsea team are feeling blue';
-        $Project->youtubelink = '????????';
+        $Project->youtubelink = 'https://www.youtube.com/watch?v=oBp-w9Hag9c';
         $Project->detail = "";
         //Add to highlight
         $this->addProjectToCategory(5, 3);
@@ -277,49 +277,30 @@ class PopulateDatabase
     public function populateImageData(){
 
         // Insert some stuff
-        $Image = new Image();
-        $Image->filename = 'big.jpg';
-        $Image->type='featured';
-        $Image->Project_ID = 1;
-        $Image->save();
-
-        // Insert some stuff
-        $Image = new Image();
-        $Image->filename = 'big.jpg';
-        $Image->type='featured';
-        $Image->Project_ID = 2;
-        $Image->save();
-
-        // Insert some stuff
-        $Image = new Image();
-        $Image->filename = 'big.jpg';
-        $Image->type='featured';
-        $Image->Project_ID = 3;
-        $Image->save();
-
-        // Insert some stuff
-        $Image = new Image();
-        $Image->filename = 'big.jpg';
-        $Image->type='featured';
-        $Image->Project_ID = 4;
-        $Image->save();
-
-         // Insert some stuff
-        $Image = new Image();
-        $Image->filename = 'big.jpg';
-        $Image->type='featured';
-        $Image->Project_ID = 5;
-        $Image->save();
-
-         // Insert some stuff
-        $Image = new Image();
-        $Image->filename = 'big.jpg';
-        $Image->type='featured';
-        $Image->Project_ID = 6;
-        $Image->save();
-
-
+        $this->createImages(1);
+        $this->createImages(2);
+        $this->createImages(3);
+        $this->createImages(4);
+        $this->createImages(5);
+        $this->createImages(6);
     }
 
+
+
+    public function createImages($ProjectID){ 
+        $this->createImage($ProjectID, 'thumb', 'square.jpg');
+        $this->createImage($ProjectID, 'featured', 'big.jpg');
+    } 
+
+
+    public function createImage($ProjectID, $type, $filename){ 
+        $Image = new Image();
+        $Image->filename = $filename;
+        $Image->type=$type;
+        $Image->Project_ID = $ProjectID;
+        $Image->save();
+    }   
+
+       
 
 }

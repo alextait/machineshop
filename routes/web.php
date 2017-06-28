@@ -25,6 +25,15 @@ Route::get('/about', 'ProjectController@getAbout');
 Route::get('/contact', 'StaticPagesController@getContact');
 
 //Admin
-Route::resource('displayitem' , 'DisplayItemController');
+
+Route::resource('project' , 'ProjectController');
+
+//Route::get('/categoryproject/destroy/{projectid}/{categoryid}', 'CategoryProjectController@destroy');
+
+
+Route::resource('categoryproject' , 'CategoryProjectController', ['except' => 'destroy']);
+
+Route::delete('/categoryproject/destroy/{project_id}/{category_id}',  ['uses' =>'CategoryProjectController@destroy'] );
+
 Route::get('/populatedata', 'MainController@populateData');
 

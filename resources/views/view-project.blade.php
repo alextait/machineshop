@@ -10,20 +10,19 @@
 
 <section>
 
-    <div class="background-image" style="background-image:url('/img/article/{!!$displayItem->displayItemID!!}/big.jpg');"></div>
+    <div class="background-image" style="background-image:url('/img/article/{!!$Project->ProjectID!!}/big.jpg');"></div>
     <div class="image-overlay"></div>
         
     <div class="banner-page">
         <div class="banner-text center">
             <div class="container">
-                <h1> {{$displayItem->heading}}</h1>
+                <h1> {{$Project->heading}}</h1>
             </div>
         </div>
     </div>
     <section>
         <div class="container">
             <div class="row">
-
                     <div class="column-4 project-carousel">
                         <div class="swiper-container">
                             <div class="swiper-wrapper">
@@ -54,7 +53,7 @@
                     </div>
 
                 <div class="column-4 project-summary">
-                    {!!html_entity_decode($displayItem->detail)!!}
+                    {!!html_entity_decode($Project->detail)!!}
                 </div>
 
                     <div class="column-4 video-image" data-toggle="modal" data-target="#video">
