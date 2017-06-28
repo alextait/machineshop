@@ -11,7 +11,9 @@
                 Add Project
             </h1>
         
-            <form method="POST" action="/displayitem" accept-charset="UTF-8"><input name="_token" type="hidden" value="{{ csrf_token() }}">
+            <form method="POST" action="/displayitem" accept-charset="UTF-8" enctype="multipart/form-data">
+
+                <input name="_token" type="hidden" value="{{ csrf_token() }}">
 
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
@@ -37,7 +39,11 @@
                             <input type="text" class="form-control" name="youtubelink" placeholder="Enter your youtube URL here" />
                            
                             <label class=" btn-file">
-                                Select Large Image <input type="file" hidden>
+                                {{ Form::label('featured_image', 'Upload large image')}}
+                                {{ Form::file('featured_image')}}
+
+                                {{-- Select Large Image <input type="file" hidden> --}}
+                                
                             </label>
 
                             <label class=" btn-file">

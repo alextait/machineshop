@@ -9,8 +9,11 @@
             <h1>
                 Edit Project {{$displayItem->displayitemid}} 
             </h1>
-        
-            <form method="POST" action="/displayitem" accept-charset="UTF-8"><input name="_token" type="hidden" value="{{ csrf_token() }}">
+
+            {!! Form::model($displayItem, ['route' => ['displayitem.update', $displayItem->displayitemid], 'method' => 'PUT']) !!}
+
+
+          {{--   <form method="POST" action="/displayitem/update" accept-charset="UTF-8"><input name="_token" type="hidden" value="{{ csrf_token() }}"> --}}
 
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
@@ -47,9 +50,7 @@
                         
                         <label class=" btn-file">
                             Select Medium Image (640 x 310 pixels)<input type="file" hidden>
-                        </label>
-                                                    
-                      
+                        </label>                       
                         
                     </div>
                     <div class="col-md-6">
@@ -77,7 +78,7 @@
                         <input type="submit" value="Update Display Item" class="btn btn-primary pull-right" />
                     </div>
                 </div>
-            </form> 
+           {!! Form::close() !!}
 
 
         </section>

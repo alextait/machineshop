@@ -3,8 +3,9 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use App\Category;
 
-class CreateDisplayitemtocategory extends Migration
+class CreateCategory extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +14,10 @@ class CreateDisplayitemtocategory extends Migration
      */
     public function up()
     {
-        Schema::create('displayitemtocategory', function (Blueprint $table) {
-            $table->integer('categoryid');
-            $table->integer('displayitemid');
-            $table->unique(['categoryid', 'displayitemid']);
+        Schema::create('Categories', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('parentCategory_id')->default(0);
+            $table->string('category')->default(0);
             $table->timestamps();
         });
     }
@@ -28,6 +29,6 @@ class CreateDisplayitemtocategory extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('displayitemtocategory');
+        Schema::dropIfExists('Categories');
     }
 }

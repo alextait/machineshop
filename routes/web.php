@@ -24,7 +24,6 @@ Route::get('/news', 'ProjectController@getNews');
 Route::get('/about', 'ProjectController@getAbout');
 Route::get('/contact', 'StaticPagesController@getContact');
 
-
 //Admin
 Route::resource('displayitem' , 'DisplayItemController');
 Route::get('/populatedata', 'MainController@populateData');

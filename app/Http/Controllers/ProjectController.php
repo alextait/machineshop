@@ -3,27 +3,31 @@
 namespace App\Http\Controllers;
 
 use App\Project;
-use App\DisplayItem;
+use App\Category;
 use DB;
 use Illuminate\Http\Request;
+
 
 class ProjectController extends Controller
 {
     
     //
     public function getProjectHighlight(){
-        $displayItems = DB::table('displayitem')
-             ->leftJoin('displayitemimage', function ($join) {
-                    $join->on('displayitem.displayItemID', '=', 'displayitemimage.displayItemID')
-                        ->where('displayitemimage.main', '=', 1);
-                })
-             ->join('displayitemtocategory', function ($join) {
-                    $join->on('displayitemtocategory.displayItemID', '=', 'displayitem.displayItemID')
-                        ->where('displayitemtocategory.categoryid', '=', 10);
-                })
-             ->select('displayitem.*', 'displayitemimage.filename')->get();
+        
+
+       // $Projects = Project::with('category', 'featured')->toSql();
+        $Projects = Project::whereHas('categories', function($query){
+            $query->where('category', '=', 'Highlight');
+        });
+
+        $Projects->whereHas('images', function($query){
+            $query->where('type', '=', 'featured');
+        });
+
+        $Projects = $Projects->get();
+
         return view('project-highlight')
-            ->with('displayItems',  $displayItems)
+            ->with('Projects',  $Projects)
             ->with('pagename', 'highlight')
             ;
     }
@@ -37,11 +41,11 @@ class ProjectController extends Controller
 
     public function getSubCategoryItems($categoryid){
             //get any sub categories for the specials
-        $subCategoryItems = DB::table('displayitemtree')
-           	->join('displayitemtocategory', 'displayitemtocategory.categoryid', '=', 'displayitemtree.childid')
-           	->join('displayitemcategory', 'displayitemtocategory.categoryid', '=', 'displayitemcategory.categoryid')
-           	->select('displayitemtree.childid, displayitemtocategory.category , displayitemtocategory.categoryid ')
-           	->where('displayitemtree.parentid', '=', $categoryid);
+        $subCategoryItems = DB::table('Projecttree')
+           	->join('Projecttocategory', 'Projecttocategory.categoryid', '=', 'Projecttree.childid')
+           	->join('Projectcategory', 'Projecttocategory.categoryid', '=', 'Projectcategory.categoryid')
+           	->select('Projecttree.childid, Projecttocategory.category , Projecttocategory.categoryid ')
+           	->where('Projecttree.parentid', '=', $categoryid);
         return  $subCategoryItems;
      }   
 
@@ -54,28 +58,28 @@ class ProjectController extends Controller
 
     public function getProjectList($pagetitle, $pagename, $aboutSection, $categoryid, $subCategoryItems){
        
-        $displayItems = DB::table('displayitem')
+        $Projects = DB::table('Project')
            
-            ->join('displayitemtocategory' , 'displayitemtocategory.displayItemID', '=', 'displayitem.displayItemID')
-            ->whereRaw("displayitemtocategory.categoryid = ? OR displayitemtocategory.categoryid IN (SELECT childid FROM displayitemtree WHERE parentid = ?)" ,  [$categoryid,$categoryid ])
-            ->select('displayitem.*')
+            ->join('Projecttocategory' , 'Projecttocategory.ProjectID', '=', 'Project.ProjectID')
+            ->whereRaw("Projecttocategory.categoryid = ? OR Projecttocategory.categoryid IN (SELECT childid FROM Projecttree WHERE parentid = ?)" ,  [$categoryid,$categoryid ])
+            ->select('Project.*')
             ->paginate(10);
 
        return view('view-projects')
-            ->with('displayItems', $displayItems)
+            ->with('Projects', $Projects)
             ->with('pagename',  $pagename)
             ->with('pagetitle',  $pagetitle)
             ->with('aboutSection', $aboutSection)
             ->with('subCategoryItems', $subCategoryItems); 
     }
 
-    public function getViewProject($displayitemid){
-        $displayItem = DB::table('displayitem')
-            ->where('displayitem.displayitemid', '=', $displayitemid)
-            ->select('displayitem.*')
+    public function getViewProject($Projectid){
+        $Project = DB::table('Project')
+            ->where('Project.Projectid', '=', $Projectid)
+            ->select('Project.*')
             ->first();
         return view('view-project') 
-            ->with('displayItem', $displayItem);
+            ->with('Project', $Project);
     }
 
     public function getNews(){
@@ -103,7 +107,7 @@ class ProjectController extends Controller
      */
     public function create(){
         
-      return view('admindisplayitem');
+      return view('adminProject');
     }
 
     /**

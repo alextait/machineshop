@@ -3,8 +3,9 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use App\Project;
 
-class CreateDisplayItemsTable extends Migration
+class CreateProjectTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +14,12 @@ class CreateDisplayItemsTable extends Migration
      */
     public function up()
     {
-        Schema::create('displayitem', function (Blueprint $table) {
-            $table->increments('displayitemid');
+        Schema::create('projects', function (Blueprint $table) {
+            $table->increments('id');
             $table->timestamps();
             $table->string('heading')->default('');
-            $table->string('subheading')->nullable();
-            $table->string('youtubelink')->nullable();
+            $table->string('subHeading')->nullable();
+            $table->string('youtubeLink')->nullable();
             $table->text('detail')->nullable();
         });
     }
@@ -30,6 +31,6 @@ class CreateDisplayItemsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('displayitem');
+        Schema::dropIfExists('projects');
     }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\DisplayItem;
 use Illuminate\Http\Request;
+use Image;
 
 class DisplayItemController extends Controller
 {
@@ -48,11 +49,29 @@ class DisplayItemController extends Controller
 
             ));
         //Store
+
+
         $displayItem = new DisplayItem;
         $displayItem->heading = $request->heading;
         $displayItem->subheading = $request->subheading;
         $displayItem->detail = $request->detail;
         $displayItem->youtubelink = $request->youtubelink;
+
+        $alphaHeading = preg_replace('/[^a-z\d ]/i', '', $request->heading);
+        $alphaHeading = str_replace(' ', '_', $alphaHeading  );
+
+       
+        //Save image
+        if($request->hasFile('featured_image')){
+            $image = $request->file('featured_image');
+            $filename = $alphaHeading . time() . '.' .  $image->getClientOriginalExtension();
+            $location = public_path('img/article/' . $filename);
+            Image::make($image)->resize(800,400) ->save($location);
+        }
+
+        $displayItem->filename = $filename;
+
+        
 
         $displayItem->save();
 

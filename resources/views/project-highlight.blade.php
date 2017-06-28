@@ -6,14 +6,14 @@
 <div class="banner">
     <div class="swiper-container swiper-container-horizontal swiper-container-fade">
         <div class="swiper-wrapper" style="transition-duration: 0ms;">
-            @foreach($displayItems as $displayItem)
-                <div class="swiper-slide swiper-slide-active" style="background-image: url('/img/article/{{$displayItem->displayitemid}}/big.jpg');  width: 1903px; ">
+            @foreach($Projects as $Project)
+                <div class="swiper-slide swiper-slide-active" style="background-image: url('/img/article/{{$Project->id}}/{{$Project->images->count()}}');  width: 1903px; ">
                     <div class="image-overlay"></div>
                     <div class="container">
                         <div class="banner-text">
-                            <h2>{{ $displayItem->heading }}</h2>
-                            <p>{{ $displayItem->subheading }}</p>
-                            <a href="/view-project/{{$displayItem->displayitemid}}/" class="btn">
+                            <h2>{{ $Project->heading }}</h2>
+                            <p>{{ $Project->subHeading }}</p>
+                            <a href="/view-project/{{$Project->id}}/" class="btn">
                                 View Project
                             </a>
                         </div>

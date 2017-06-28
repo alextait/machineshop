@@ -3,8 +3,9 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use App\Image;
 
-class CreateDisplayitemtree extends Migration
+class Createimage extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +14,17 @@ class CreateDisplayitemtree extends Migration
      */
     public function up()
     {
-        Schema::create('displayitemtree', function (Blueprint $table) {
-            $table->integer('parentid');
-            $table->integer('childid');
-            $table->unique(['childid', 'parentid']);
+        Schema::create('images', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('filename')->default('');
+            $table->enum('type', ['extra', 'featured', 'thumb'])->default('extra');
+            $table->integer('project_id')->default(0);
             $table->timestamps();
         });
     }
+
+
+
 
     /**
      * Reverse the migrations.
@@ -28,6 +33,8 @@ class CreateDisplayitemtree extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('displayitemtree');
+        Schema::dropIfExists('images');
     }
+
+
 }
