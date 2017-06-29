@@ -20,23 +20,13 @@
                     <a href="/all-projects/">All Projects</a>
                 </li>
 
-
-
-              {{var_dump($subCategoryItems -> count())}}
-
-
                 @foreach($subCategoryItems as $subCategoryItem)
-
-                    {{var_dump('TETS')}}
-                 
-
-                   {{-- 
                     <div class="project-column">
                         <li>
-                            <a href="/special-projects/">Tet</a>
+                            <a href="/special-projects/">{{$subCategoryItem->category}}</a>
                         </li>
                     </div>
- --}}
+
                 @endforeach
                
             </ul>
@@ -53,12 +43,22 @@
 
         <div class="row projects-container">
 
-            @foreach($displayItems as $displayItem)
+            @foreach($Projects as $Project)
+
+                 @php
+                
+                    $thumbFile = '';
+                    foreach ($Project->images as $image){
+                        if($image->type == 'thumb'){ 
+                            $thumbFile = $image->filename; 
+                        }
+                    }
+                 @endphp
 
                 <div class="project-column">
-                     <a href="/view-project/{{ $displayItem->displayitemid }}/" class="project-box">
-                        <img src="/img/article/{{ $displayItem->displayitemid }}/square.jpg" alt="project-name" />
-                        <h4 class="image-overlay-title">{{ $displayItem->heading }}</h4>
+                     <a href="/view-project/{{ $Project->id }}/" class="project-box">
+                        <img src="/img/article/{{ $Project->id }}/{{$thumbFile}}" alt="project-name" />
+                        <h4 class="image-overlay-title">{{ $Project->heading }}</h4>
                     </a>
                 </div>
 
@@ -67,7 +67,7 @@
         </div>
 
         <div class="text-right ">
-            {!! $displayItems->links() !!}
+            {!! $Projects->links() !!}
         </div>
 
 

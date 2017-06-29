@@ -44,29 +44,36 @@ class ProjectController extends Controller
 
     public function getSubCategoryItems($categoryid){
             //get any sub categories for the specials
-        $subCategoryItems = DB::table('Projecttree')
-           	->join('Projecttocategory', 'Projecttocategory.categoryid', '=', 'Projecttree.childid')
-           	->join('Projectcategory', 'Projecttocategory.categoryid', '=', 'Projectcategory.categoryid')
-           	->select('Projecttree.childid, Projecttocategory.category , Projecttocategory.categoryid ')
-           	->where('Projecttree.parentid', '=', $categoryid);
+        $subCategoryItems = Category::where('parentCategory_id', 1)->get();
+
+
+        // DB::table('Projecttree')
+        //    	->join('Projecttocategory', 'Projecttocategory.categoryid', '=', 'Projecttree.childid')
+        //    	->join('Projectcategory', 'Projecttocategory.categoryid', '=', 'Projectcategory.categoryid')
+        //    	->select('Projecttree.childid, Projecttocategory.category , Projecttocategory.categoryid ')
+        //    	->where('Projecttree.parentid', '=', $categoryid);
         return  $subCategoryItems;
      }   
 
     public function getSpecialEffectsProjects($categoryid){
         $aboutSection = 'Machine Shop Special Effects provides a range of live atmospheric and pyrotechnic floor-effects with our reliable and experienced team of technicians. We also offer superior modelmaking and animatronics services from our team of in-house specialists.' ;   
-    	$subCategoryItems  =  $this->getSubCategoryItems(4);
+    	$subCategoryItems  =  $this->getSubCategoryItems(1);
        	return  $this->getProjectList('Special Effects', 'special-effects', $aboutSection, $categoryid , $subCategoryItems);
     }
 
 
     public function getProjectList($pagetitle, $pagename, $aboutSection, $categoryid, $subCategoryItems){
        
-        $Projects = DB::table('Project')
+        $Projects = Project::paginate(10);
+
+
+
+        // DB::table('Project')
            
-            ->join('Projecttocategory' , 'Projecttocategory.ProjectID', '=', 'Project.ProjectID')
-            ->whereRaw("Projecttocategory.categoryid = ? OR Projecttocategory.categoryid IN (SELECT childid FROM Projecttree WHERE parentid = ?)" ,  [$categoryid,$categoryid ])
-            ->select('Project.*')
-            ->paginate(10);
+        //     ->join('Projecttocategory' , 'Projecttocategory.ProjectID', '=', 'Project.ProjectID')
+        //     ->whereRaw("Projecttocategory.categoryid = ? OR Projecttocategory.categoryid IN (SELECT childid FROM Projecttree WHERE parentid = ?)" ,  [$categoryid,$categoryid ])
+        //     ->select('Project.*')
+        //     ->paginate(10);
 
        return view('view-projects')
             ->with('Projects', $Projects)

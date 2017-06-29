@@ -6,10 +6,7 @@
  */
 
 require('./bootstrap');
-
 require('swiper');
-
-
 require('./global');
 
 

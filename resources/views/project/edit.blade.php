@@ -2,6 +2,22 @@
 @extends('layouts.main')
 
 
+@section('stylesheets')
+
+  
+    <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
+    <script>
+        tinymce.init({
+            selector: 'textarea'
+            , plugins: "link" 
+            , menubar : "false"
+        });
+    </script>
+
+@endsection
+
+
+
 @section('content')
     <div class="container">
         <section>
@@ -26,7 +42,11 @@
                         <input type="text" class="form-control" name="subheading" placeholder="Sub Heading" value="{{$Project->subHeading}}" />
                         
                         <label for="detail" />Description</label>
-                        <textarea name="detail" class="form-control">{{$Project->detail}}</textarea>
+                        <textarea name="detail" class="form-control">
+                        
+                            {{$Project->detail}}
+
+                        </textarea>
                         
                         <label for="youtubelink" />Youtube Link</label>
                         <input type="text" class="form-control" name="youtubelink" placeholder="Enter your youtube URL here" value="{{$Project->youtubeLink}}" />

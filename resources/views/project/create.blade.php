@@ -3,10 +3,26 @@
 
 
 
+
+@section('stylesheets')
+
+  
+    <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
+    <script>
+        tinymce.init({
+            selector: 'textarea'
+            , plugins: "link" 
+            , menubar : "false"
+        });
+    </script>
+
+@endsection
+
+
 @section('content')
     <div class="container">
         <section>
-            
+                
             <h1>
                 Add Project
             </h1>
