@@ -10,7 +10,7 @@
                 </li>
                 <li>
                     <a href="https://www.youtube.com/user/machineshoppaul" target="_blank">
-                        <span class="icon-youtube3"></span>
+                        <span class="icon-youtube"></span>
                     </a>
                 </li>
             </ul>

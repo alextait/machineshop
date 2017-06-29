@@ -44,10 +44,10 @@
                     <div class="swiper-container">
                         <div class="swiper-wrapper">
                             <div class="swiper-slide">
-                                <img src="/img/article/{!!$Project->id!!}/{{$featuredFile}}?center=0.54222222222222227,0.2525&amp;mode=crop&amp;width=383&amp;height=286&amp;rnd=130972495650000000" alt="" />
+                                <img src="/img/article/{!!$Project->id!!}/{{$featuredFile}}" alt="" />
                             </div>
                             <div class="swiper-slide">
-                                <img src="/img/article/{!!$Project->id!!}/{{$featuredFile}}?center=0.54222222222222227,0.2525&amp;mode=crop&amp;width=383&amp;height=286&amp;rnd=130972495650000000" alt="" />
+                                <img src="/img/article/{!!$Project->id!!}/{{$featuredFile}}" alt="" />
                             </div>
                         </div>
                         <span class="arrow icon-chevron-left"></span>
