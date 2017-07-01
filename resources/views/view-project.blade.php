@@ -25,33 +25,39 @@
         <section>
             <div class="container">
 
-                 @php
-
+                @php
+                    $thumbFile = '';
                     $featuredFile = '';
+                    $extraImages = array();
                     foreach ($Project->images as $image){
+                        
+                        if($image->type == 'extra'){ 
+                            array_push($extraImages , $image->filename);
+                        } 
                         if($image->type == 'featured'){ 
                             $featuredFile = $image->filename; 
                         } 
                         
+                        if($image->type == 'thumb'){ 
+                            $thumbFile = $image->filename; 
+                        }
                     }
-                 @endphp
+                @endphp
 
                 <div class="row">
-
                     <div class="column-4 project-carousel">
                         <div class="swiper-container">
                             <div class="swiper-wrapper">
-                                <div class="swiper-slide">
-                                    <img src="/img/article/{!!$Project->id!!}/{{$featuredFile}}?center=0.54222222222222227,0.2525&amp;mode=crop&amp;width=383&amp;height=286&amp;rnd=130972495650000000" alt="" />
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="/img/article/{!!$Project->id!!}/{{$featuredFile}}?center=0.54222222222222227,0.2525&amp;mode=crop&amp;width=383&amp;height=286&amp;rnd=130972495650000000" alt="" />
-                                </div>
+                                @foreach($extraImages as $fileName)
+                                    <br /> 
+                                     <div class="swiper-slide">
+                                        <img src="/img/article/{!!$Project->id!!}/{{$fileName}}" alt="" />
+                                    </div>
+                                @endforeach
                             </div>
                             <span class="arrow icon-chevron-left"></span>
                             <div class="swiper-pagination"></div>
-                            <span class="arrow icon-chevron-right"></span>
-                                
+                            <span class="arrow icon-chevron-right"></span>    
                         </div>
                     </div>
 

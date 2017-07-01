@@ -89,6 +89,7 @@
 
                     <div class="column-6">     
                         <h3>Images</h3>
+                        
                         <label class=" btn-file">
                             {{ Form::label('featured_image', 'Upload large image (Ideally 1920 x 1080 pixels)')}}
                             {{ Form::file('featured_image')}}
