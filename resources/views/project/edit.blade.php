@@ -54,7 +54,13 @@
                          @php
                             $thumbFile = '';
                             $featuredFile = '';
+                            $extraImages = array();
                             foreach ($Project->images as $image){
+                                
+                                if($image->type == 'extra'){ 
+                                    array_push($extraImages , $image->filename);
+                                } 
+
                                 if($image->type == 'featured'){ 
                                     $featuredFile = $image->filename; 
                                 } 

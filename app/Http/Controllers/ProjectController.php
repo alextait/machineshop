@@ -201,50 +201,32 @@ class ProjectController extends Controller
         $Project->detail = $request->detail;
         $Project->youtubelink = $request->youtubelink;
 
-        $alphaHeading = preg_replace('/[^a-z\d ]/i', '', $request->heading);
-        $alphaHeading = str_replace(' ', '_', $alphaHeading  );
 
         $Project->save();
 
-        $path = public_path('img/article/' . $Project->id . '/');
-        if(!file_exists( $path)){
-            mkdir($path);
-        }
+
 
         //Save carousel
         if($request->hasFile('thumb_image')){
             $imageToUpload = $request->file('carousel_image');
-            ImageService::saveCarouselImage($imageToUpload);
+            ImageService::saveCarouselImage($imageToUpload, $request->heading, $Project->id);
         }
-   
-
-
 
         //Save featured
-
         if($request->hasFile('featured_image')){
             $imageToUpload = $request->file('featured_image');
-            $filename = $alphaHeading . time() . '.' .  $imageToUpload->getClientOriginalExtension();
-            $location =  $path . $filename;
-            ImageTool::make($imageToUpload)->fit(1920,1080) ->save($location);
+            ImageService::saveFeaturedImage($imageToUpload, $request->heading, $Project->id);
         }
-        $image = new Image;
-        $image->filename =  $filename;
-        $image->type =  'featured';
-        $Project->images()->save($image);
 
-
-        //Save featured
+        //Save thumb
         if($request->hasFile('thumb_image')){
             $imageToUpload = $request->file('thumb_image');
-            $filename = $alphaHeading . time() . 'THUMB' . '.' .  $imageToUpload->getClientOriginalExtension();
-            $location =  $path . $filename;
-            ImageTool::make($imageToUpload)->fit(340,310) ->save($location);
+            ImageService::saveThumbImage($imageToUpload, $request->heading, $Project->id);
         }
-        $image = new Image;
-        $image->filename =  $filename;
-        $image->type =  'thumb';
-        $Project->images()->save($image);
+
+    
+
+
 
 
 
