@@ -1,4 +1,7 @@
 
+
+
+
 @include('partials.head')
 
 <body class="project menu-push">
@@ -18,8 +21,6 @@
                 </div>
             </div>
         </div>
-
-
 
         <section>
             <div class="container">
@@ -126,7 +127,7 @@
         }
     </script>
 
-</body>
+
 
 
 

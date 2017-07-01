@@ -15,6 +15,8 @@
     <link rel="stylesheet" type="text/css" href="/css/global.css">
 
     <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+
+    <script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=ynz5elfnxqhwgv2cr8ztfqjb3yprub78wme1brhrx30ggplh"></script>
    
 	<script type="text/javascript" src="{{asset('js/app.js')}}"></script>
 	

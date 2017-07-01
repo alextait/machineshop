@@ -6,6 +6,7 @@ use App\Project;
 use App\Category;
 use App\Category_Project;
 use App\Image;
+use App\Models\ImageService;
 use ImageTool;
 use DB;
 use Illuminate\Http\Request;
@@ -209,7 +210,18 @@ class ProjectController extends Controller
         if(!file_exists( $path)){
             mkdir($path);
         }
+
+        //Save carousel
+        if($request->hasFile('thumb_image')){
+            $imageToUpload = $request->file('carousel_image');
+            ImageService::saveCarouselImage($imageToUpload);
+        }
+   
+
+
+
         //Save featured
+
         if($request->hasFile('featured_image')){
             $imageToUpload = $request->file('featured_image');
             $filename = $alphaHeading . time() . '.' .  $imageToUpload->getClientOriginalExtension();
@@ -233,6 +245,10 @@ class ProjectController extends Controller
         $image->filename =  $filename;
         $image->type =  'thumb';
         $Project->images()->save($image);
+
+
+
+
 
         //Add links to categorys
 

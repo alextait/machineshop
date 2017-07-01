@@ -6,17 +6,18 @@
 
 	<div class="container">
 		
-		<h1>Projects</h1>
-	
 		<div class="row">
-			<div class="col-md-12">
+			<div class="col-md-6 pull-left">
+				<h1>Projects</h1>
+			</div>
+			<div class="col-md-6 pull-right">
 				<a href="/project/create" class="btn btn-primary">Create New Project</a>
 			</div>
 		</div>
 
-		<div class="row">
-			<div class="col-md-12">
-				<table class="table">
+		<hr />
+
+				<table class="table" style="width:100%;">
 					<thead>
 						<th>#</th>
 						<th>Header</th>
@@ -31,16 +32,16 @@
 							<tr>
 								<th>{{ $Project->id }}</th>
 								<td>{{ $Project->heading }}</td>
-								<td>
+								<td title="{{strip_tags($Project->detail)}}">
 									{{ substr(strip_tags($Project->detail), 0, 50) }}  {{ strlen(strip_tags($Project->detail)) > 50 ? "..." : "" }}
 								</td>
 								<td>
 									{{ date('M j, Y', strtotime($Project->created_at)) }}
 								</td>
-								<td>
-									<a href="{{ route('project.show', $Project->id) }}" class="btn btn-default btn-sm">
+								<td style="text-align:right;">
+						{{-- 			<a href="{{ route('project.show', $Project->id) }}" class="btn btn-default btn-sm">
 										View
-									</a> 
+									</a>  --}}
 									<a href="{{ route('project.edit', $Project->id) }}" class="btn btn-default btn-sm">
 										Edit
 									</a>
@@ -55,8 +56,7 @@
 	{{-- 			<div class="text-center">
 					{!! $Projects->links(); !!}
 				</div> --}}
-			</div>
-		</div>
+			
 	</div>
 
 

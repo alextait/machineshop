@@ -26,3 +26,6 @@
     </div>
 </footer>
 
+</body>
+</html>
+
