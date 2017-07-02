@@ -51,7 +51,7 @@
                                 @foreach($extraImages as $fileName)
                                     <br /> 
                                      <div class="swiper-slide">
-                                        <img src="/img/article/{!!$Project->id!!}/{{$fileName}}" alt="" />
+                                        <img src="/img/article/{!!$Project->id!!}/extra/{{$fileName}}" alt="" />
                                     </div>
                                 @endforeach
                             </div>

@@ -19,7 +19,7 @@ class ImageService extends Model
      */
     public static function saveCarouselImage($imageToSave,$heading,$project_id)
     {
-	   self::saveImage($imageToSave, 'extra', $heading, $project_id);
+	   self::saveImage($imageToSave, 'extra', $heading, $project_id, 0, 0, '/extra');
     }
 
     /**
@@ -50,15 +50,13 @@ class ImageService extends Model
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public static function saveImage($imageToSave, $type,$heading,$project_id, $dimensionX = 0, $dimensionY= 0)
+    public static function saveImage($imageToSave, $type,$heading,$project_id, $dimensionX = 0, $dimensionY= 0, $subfolder = '')
     {
         $Project = project::find($project_id);
-        
-        $path = public_path('img/article/' . $project_id . '/');
-
-
-
-        if(!file_exists( $path)){
+    
+        $path = public_path('img/article/'  . $project_id . $subfolder . '/');
+    
+       if(!file_exists( $path)){
             mkdir($path);
         }
         $alphaHeading = preg_replace('/[^a-z\d ]/i', '', $heading);

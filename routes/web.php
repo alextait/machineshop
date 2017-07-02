@@ -16,7 +16,7 @@ Route::get('/', 'ProjectController@getProjectHighlight');
 Route::get('/special-projects/{categoryid}', ['uses' =>'ProjectController@getSpecialProjects'] );
 Route::get('/special-effects/{categoryid}',  ['uses' =>'ProjectController@getSpecialEffectsProjects'] );
 //??? Perhaps this should be taken over by the resource show event????
-Route::get('/view-project/{displayitemid}',  ['uses' =>'ProjectController@getViewProject'] );
+Route::get('/view-project/{projectid}',  ['uses' =>'ProjectController@getViewProject'] );
 
 //Other Links
 Route::get('/hire', 'StaticPagesController@getHire');
@@ -26,10 +26,11 @@ Route::get('/contact', 'StaticPagesController@getContact');
 
 //Admin
 
+Route::resource('image' , 'ImageController', ['except' => 'destroy']);
+Route::delete('/image/destroy/{image_id}/{project_id}',  ['uses' =>'ImageController@destroy'] );
+
+
 Route::resource('project' , 'ProjectController');
-
-//Route::get('/categoryproject/destroy/{projectid}/{categoryid}', 'CategoryProjectController@destroy');
-
 
 Route::resource('categoryproject' , 'CategoryProjectController', ['except' => 'destroy']);
 

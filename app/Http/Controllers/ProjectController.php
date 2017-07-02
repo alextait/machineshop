@@ -99,16 +99,6 @@ class ProjectController extends Controller
     }
 
 
-
-
-    public function getImageByType($Project, $type){
-        foreach($Project->images as $image){
-            if($image->type == $type){
-                return $image;
-            }
-        }  
-    }
-
     public function updateImages($request, $Project){
         $alphaHeading = preg_replace('/[^a-z\d ]/i', '', $request->heading);
         $alphaHeading = str_replace(' ', '_', $alphaHeading  );
@@ -119,36 +109,16 @@ class ProjectController extends Controller
         //Save featured
         if($request->hasFile('featured_image')){
             $imageToUpload = $request->file('featured_image');
-            $this->updateImage( $imageToUpload, 'featured', $Project, $path , $alphaHeading, 1920, 1080);
+            
+            ImageService::saveFeaturedImage($imageToUpload, $request->heading, $Project->id);
         }  
+
         if($request->hasFile('thumb_image')){
             $imageToUpload = $request->file('thumb_image');
-            $this->updateImage( $imageToUpload, 'thumb', $Project, $path, $alphaHeading, 340, 310);
+            ImageService::saveThumbImage($imageToUpload, $request->heading, $Project->id);
         }  
 
     }
-
-    public function updateImage($imageToUpload, $type, $Project , $path, $alphaHeading, $width, $height){
-        //First clear out any featured images which already exist.
-        $currentImage = $this->getImageByType($Project, $type);
-        if(!is_null($currentImage )){
-            $currentlocation =  $path . $currentImage->filename;
-            if(file_exists( $currentlocation)){
-                unlink($currentlocation); 
-            }
-            $currentImage->delete();
-        }
-        $filename = $alphaHeading . time() . '.' .  $imageToUpload->getClientOriginalExtension();
-        $location =  $path . $filename;
-        
-        ImageTool::make($imageToUpload)->fit( $width, $height)->save($location);
-        $image = new Image;
-        $image->filename =  $filename;
-        $image->type =  $type;
-        $Project->images()->save($image);
-        
-    }
-
 
     /**
      * Display a listing of the resource.
@@ -207,7 +177,7 @@ class ProjectController extends Controller
 
 
         //Save carousel
-        if($request->hasFile('thumb_image')){
+        if($request->hasFile('carousel_image')){
             $imageToUpload = $request->file('carousel_image');
             ImageService::saveCarouselImage($imageToUpload, $request->heading, $Project->id);
         }
@@ -223,11 +193,6 @@ class ProjectController extends Controller
             $imageToUpload = $request->file('thumb_image');
             ImageService::saveThumbImage($imageToUpload, $request->heading, $Project->id);
         }
-
-    
-
-
-
 
 
 

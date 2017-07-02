@@ -28,6 +28,7 @@
 
 			<a href="/project/create" class="btn btn-primary" >Create Project</a>
 			<a href="/project" class="btn btn-primary" >List Projects</a>
+			<a href="/view-project/{{$Project->id}}" class="btn btn-primary" >View Project</a>
 
 			<br /><br />
 			<hr />
@@ -70,7 +71,7 @@
 					$extraImages = array();
 					foreach ($Project->images as $image){
 						if($image->type == 'extra'){ 
-							array_push($extraImages , $image->filename);
+							array_push($extraImages , $image);
 						} 
 						if($image->type == 'featured'){ 
 							$featuredFile = $image->filename; 
@@ -80,11 +81,12 @@
 							$thumbFile = $image->filename; 
 						}
 					}
+	  
 				@endphp
 
 				<hr />
 				
-				<h1>Images/Categories</h1>
+				
 				<div class="row">
 					<div class="column-6">
 						 
@@ -108,41 +110,61 @@
 						<label class=" btn-file">
 							{{ Form::label('thumb_image', 'Select Medium Image (Ideally 640 x 310 pixels)')}}
 							{{ Form::file('thumb_image')}}
-						</label>  
-						
-						<label class=" btn-file">
-							<input type="file" name="thumb_image"  hidden>
-						</label>  
-						                   
+						</label>              
 						<br />
 						<input type="submit" value="Update Project" class="btn btn-primary pull-right" />
 					</div>
 				</div>
 				<hr />
+			{!! Form::close() !!}  
+
+				
 				<div class="row">
 					<div class="column-6">
-						<h3>
+						<h2>
 							Carousel Images
-						</h3>
-						<div class="row">
-							<div class="column-4 project-carousel">
-								<div class="swiper-container">
-									<div class="swiper-wrapper">
-										@foreach($extraImages as $fileName)
-											<br /> 
-											 <div class="swiper-slide">
-												<img src="/img/article/{!!$Project->id!!}/{{$fileName}}" alt="" />
-											</div>
-										@endforeach
-									</div>
-									<span class="arrow icon-chevron-left"></span>
-									<div class="swiper-pagination"></div>
-									<span class="arrow icon-chevron-right"></span>    
+						</h2>
+							@if (count($extraImages) > 0)
+								<div >
+									
+									
+									@foreach($extraImages as $ExtraImage)
+										<br /> 
+										 <div class="swiper-slide">
+											<img src="/img/article/{!!$Project->id!!}/extra/{{$ExtraImage->filename}}" alt="" />
+										</div>
+										{!! Form::model($Project, ['url' => ['/image/destroy', $ExtraImage->id, $Project->id], 'method' => 'DELETE' ]) !!}
+											<input type="submit" value="Delete" class="btn btn-primary pull-right" />
+											<br/><br/><br/>
+										{!! Form::close() !!}  
+									
+
+									@endforeach
+							
+								
+								
 								</div>
+							@endif
+							<br />
+							<div >
+								{!! Form::model($Project, ['route' => ['image.store', $Project->id], 'method' => 'POST' , 'files' => true]) !!}
+									<input type="hidden" name="Project_id" value="{{$Project->id}}">
+									<br/>
+									<h3>
+										Add Carousel Image
+									</h3>
+									<label class=" btn-file">
+										{{ Form::label('carousel_image', 'Select Carousel Image')}}
+										{{ Form::file('carousel_image')}}
+									</label>  
+									<br />
+									<input type="submit" value="Add Image" class="btn btn-primary pull-left" />
+							
+								 {!! Form::close() !!}  
 							</div>
-						</div>
+					
+
 					</div>
-				{!! Form::close() !!}  
 
 					<div class="column-6">	
 						<h2>
