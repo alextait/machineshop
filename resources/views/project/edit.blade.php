@@ -91,8 +91,8 @@
 					<div class="column-6">
 						 
 						<h3>Large image (Ideally 1920 x 1080 pixels)</h3>
+						<img src="{{asset('img/article/' . $Project->id . '/' . $featuredFile)}}">
 						
-						{{ Html::image('img/article/' . $Project->id . '/' . $featuredFile) }}
 						<br />
 						{{$featuredFile}}
 
@@ -104,7 +104,8 @@
 					<div class="column-6">
 					<h3>Detail image  (Ideally 340 x 310 pixels)</h3>
 						
-						{{ Html::image('img/article/' . $Project->id . '/' . $thumbFile) }}
+					
+						<img src="{{asset('img/article/' . $Project->id . '/' . $thumbFile)}}">
 						<br />
 						{{$thumbFile}}
 
