@@ -23,7 +23,7 @@
 		<section>
 			
 			<h1>
-				Editing Project "{{$Project->heading}} "
+				xx Editing Project "{{$Project->heading}} "
 			</h1>
 
 			<a href="/project/create" class="btn btn-primary" >Create Project</a>
