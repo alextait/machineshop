@@ -92,7 +92,7 @@
 						 
 						<h3>Large image (Ideally 1920 x 1080 pixels)</h3>
 						
-						<img src="/img/article/{{$Project->id}}/{{$featuredFile}}" />
+						{{ Html::image('/img/article/' . $Project->id . '/' . $featuredFile) }}
 						<br />
 						{{$featuredFile}}
 
@@ -103,7 +103,8 @@
 					</div>
 					<div class="column-6">
 					<h3>Detail image  (Ideally 340 x 310 pixels)</h3>
-						<img src="/img/article/{{$Project->id}}/{{$thumbFile}}" />
+						
+						{{ Html::image('/img/article/' . $Project->id . '/' . $thumbFile) }}
 						<br />
 						{{$thumbFile}}
 
@@ -131,7 +132,8 @@
 									@foreach($extraImages as $ExtraImage)
 										<br /> 
 										 <div class="swiper-slide">
-											<img src="/img/article/{!!$Project->id!!}/extra/{{$ExtraImage->filename}}" alt="" />
+										
+											{{ Html::image('/img/article/' . $Project->id . '/extra/' . $ExtraImage->filename) }}
 										</div>
 										{!! Form::model($Project, ['url' => ['/image/destroy', $ExtraImage->id, $Project->id], 'method' => 'DELETE' ]) !!}
 											<input type="submit" value="Delete" class="btn btn-primary pull-right" />
