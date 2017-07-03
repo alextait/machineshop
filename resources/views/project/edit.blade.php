@@ -91,7 +91,7 @@
 					<div class="column-6">
 						 
 						<h3>Large image (Ideally 1920 x 1080 pixels)</h3>
-						<img src="{{asset('img/article/' . $Project->id . '/' . $featuredFile)}}">
+						<img src="{{asset('/img/article/' . $Project->id . '/' . $featuredFile)}}">
 						
 						<br />
 						{{$featuredFile}}
