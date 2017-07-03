@@ -23,7 +23,7 @@
 		<section>
 			
 			<h1>
-				xx Editing Project "{{$Project->heading}} "
+			{{{ URL::to('/') }}}	Editing Project "{{$Project->heading}} "
 			</h1>
 
 			<a href="/project/create" class="btn btn-primary" >Create Project</a>
@@ -86,12 +86,12 @@
 
 				<hr />
 				
-				
+				<hr />
 				<div class="row">
 					<div class="column-6">
 						 
 						<h3>Large image (Ideally 1920 x 1080 pixels)</h3>
-						<img src="{{asset('/img/article/' . $Project->id . '/' . $featuredFile)}}">
+						<img src="{{asset('img/article/' . $Project->id . '/' . $featuredFile)}}">
 						
 						<br />
 						{{$featuredFile}}
