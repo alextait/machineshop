@@ -39,13 +39,21 @@
 							{{ date('M j, Y', strtotime($Project->created_at)) }}
 						</td>
 						<td style="text-align:right;">
-
-							<a href="/view-project/{{$Project->id}}" class="btn btn-default btn-sm">
-								View
-							</a>  
-							<a href="{{ route('project.edit', $Project->id) }}" class="btn btn-default btn-sm">
-								Edit
-							</a>
+							<div class="btn-group" role="group" aria-label="Basic example">
+								<button href="/view-project/{{$Project->id}}" class="btn btn-default btn-sm">
+									View
+								</button>  
+								<button href="{{ route('project.edit', $Project->id) }}" class="btn btn-default btn-sm">
+									Edit
+								</button>
+								<div class="pull-right">
+									{!! Form::open(['method' => 'DELETE', 'route' => ['project.destroy', $Project->id], 'onsubmit' => 'return confirm("are you sure ?")']) !!}
+										<input type="submit" value="Delete" class="btn btn-primary"/>
+									{!! Form::close() !!}
+								</div>
+							</div>
+				
+							<br />
 						</td>
 					</tr>
 

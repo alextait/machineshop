@@ -292,8 +292,15 @@ class ProjectController extends Controller
      * @param  \App\Project  $Project
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Project $Project)
+    public function destroy($id)
     {
-        //
+
+        $project = Project::find($id);
+
+       //
+        $project->delete();
+
+        //Redirect to the edit page just in case they wish to edit the item they just added
+        return redirect()->route('project.index');
     }
 }
