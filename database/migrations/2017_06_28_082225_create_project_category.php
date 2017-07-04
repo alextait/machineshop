@@ -16,7 +16,8 @@ class CreateProjectCategory extends Migration
         Schema::create('category_project', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('category_id')->default(0);
-            $table->integer('project_id')->default(0);
+            $table->integer('project_id')->unsigned()->default(0);
+            $table->foreign('project_id')->references('id')->on('projects')->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -18,8 +18,10 @@ class Createimage extends Migration
             $table->increments('id');
             $table->string('filename')->default('');
             $table->enum('type', ['extra', 'featured', 'thumb'])->default('extra');
-            $table->integer('project_id')->default(0);
+            $table->integer('project_id')->unsigned()->default(0);
             $table->timestamps();
+            
+            $table->foreign('project_id')->references('id')->on('projects')->onDelete('cascade');
         });
     }
 
