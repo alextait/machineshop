@@ -40,12 +40,12 @@
 						</td>
 						<td style="text-align:right;">
 							<div class="btn-group" role="group" aria-label="Basic example">
-								<button href="/view-project/{{$Project->id}}" class="btn btn-default btn-sm">
+								<a href="/view-project/{{$Project->id}}" class="btn btn-default btn-sm">
 									View
-								</button>  
-								<button href="{{ route('project.edit', $Project->id) }}" class="btn btn-default btn-sm">
+								</a>  
+								<a href="{{ route('project.edit', $Project->id) }}" class="btn btn-default btn-sm">
 									Edit
-								</button>
+								</a>
 								<div class="pull-right">
 									{!! Form::open(['method' => 'DELETE', 'route' => ['project.destroy', $Project->id], 'onsubmit' => 'return confirm("are you sure ?")']) !!}
 										<input type="submit" value="Delete" class="btn btn-primary"/>

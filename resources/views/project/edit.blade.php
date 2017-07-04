@@ -52,6 +52,17 @@
 						<label for="youtubelink" />Youtube Link</label>
 						<input type="text" class="form-control" name="youtubelink" placeholder="Enter your youtube URL here" value="{{$Project->youtubeLink}}" style="min-width:200px;" />
 					</div>
+
+					<div class="column-3">
+                        <label for="priority" />Priority</label>
+                        <select name="priority" class="form-control">
+                      		
+                            <option value="3"  @if ($Project->priority == '3')selected="selected"@endif >Low</option>  
+                            <option value="2"  @if ($Project->priority == '2')selected="selected"@endif >Medium</option>  
+                            <option value="1"  @if ($Project->priority == '1')selected="selected"@endif >High</option>    
+                           
+                        </select>
+                    </div>
 				</div>
 
 				<div class="row">

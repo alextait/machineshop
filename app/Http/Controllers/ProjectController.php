@@ -26,7 +26,7 @@ class ProjectController extends Controller
 
         $Projects->whereHas('images', function($query){
             $query->where('type', '=', 'featured');
-        });
+        })->orderBy('priority', 'asc');
 
         $Projects = $Projects->get();
 
@@ -65,23 +65,16 @@ class ProjectController extends Controller
 
     public function getProjectList($pagetitle, $pagename, $aboutSection, $categoryid, $subCategoryItems){
        
-        $Projects = Project::paginate(10);
+        $Projects = Project::orderBy('priority', 'asc')->paginate(10);
 
 
-
-        // DB::table('Project')
-           
-        //     ->join('Projecttocategory' , 'Projecttocategory.ProjectID', '=', 'Project.ProjectID')
-        //     ->whereRaw("Projecttocategory.categoryid = ? OR Projecttocategory.categoryid IN (SELECT childid FROM Projecttree WHERE parentid = ?)" ,  [$categoryid,$categoryid ])
-        //     ->select('Project.*')
-        //     ->paginate(10);
-
-       return view('view-projects')
+        return view('view-projects')
             ->with('Projects', $Projects)
             ->with('pagename',  $pagename)
             ->with('pagetitle',  $pagetitle)
             ->with('aboutSection', $aboutSection)
-            ->with('subCategoryItems', $subCategoryItems); 
+            ->with('subCategoryItems', $subCategoryItems);
+
     }
 
     public function getViewProject($Projectid){
@@ -170,7 +163,7 @@ class ProjectController extends Controller
         $Project->subheading = $request->subheading;
         $Project->detail = $request->detail;
         $Project->youtubelink = $request->youtubelink;
-
+        $Project->priority = $request->priority;
 
         $Project->save();
 
@@ -269,6 +262,7 @@ class ProjectController extends Controller
         $Project->subheading = $request->subheading;
         $Project->detail = $request->detail;
         $Project->youtubelink = $request->youtubelink;
+        $Project->priority = $request->priority;
 
         $Project->save();
         

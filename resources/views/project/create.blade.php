@@ -42,10 +42,21 @@
                         <label for="subheading" >Sub Heading</label>
                         <input type="text" class="form-control" name="subheading" placeholder="Sub Heading" />
                     </div>
-                    <div class="column-5">
+                    <div class="column-3">
                         <label for="youtubelink" />Youtube LINK ID</label>
                         <input type="text" class="form-control" name="youtubelink" style="min-width:200px;" placeholder="Enter your youtube ID" />
                     </div>
+                    <div class="column-3">
+                        <label for="priority" />Priority</label>
+                        <select name="priority" class="form-control">
+                      
+                            <option value="3">Low</option>  
+                            <option value="2">Medium</option>  
+                            <option value="1">High</option>    
+                           
+                        </select>
+                    </div>
+
                 </div>
                 
                 <div class="row">   

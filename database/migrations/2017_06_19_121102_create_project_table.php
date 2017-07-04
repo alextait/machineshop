@@ -21,7 +21,7 @@ class CreateProjectTable extends Migration
             $table->string('subHeading')->nullable();
             $table->string('youtubeLink')->nullable();
             $table->text('detail')->nullable();
-            
+            $table->enum('priority', ['1', '2', '3'])->default('3');
         });
     }
 

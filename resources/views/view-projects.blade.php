@@ -23,7 +23,9 @@
                 @foreach($subCategoryItems as $subCategoryItem)
                     <div class="project-column">
                         <li>
-                            <a href="/special-projects/">{{$subCategoryItem->category}}</a>
+                            <a href="/special-projects/ {{$subCategoryItem->id}}">
+                                {{$subCategoryItem->category}}
+                            </a>
                         </li>
                     </div>
 
