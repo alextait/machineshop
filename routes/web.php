@@ -20,6 +20,7 @@ Route::get('/view-project/{projectid}',  ['uses' =>'ProjectController@getViewPro
 
 //Other Links
 Route::get('/hire', 'StaticPagesController@getHire');
+Route::get('/hire/equipment-hire', 'StaticPagesController@getEquipmentHire');
 Route::get('/news', 'ProjectController@getNews');
 Route::get('/about', 'ProjectController@getAbout');
 Route::get('/contact', 'StaticPagesController@getContact');

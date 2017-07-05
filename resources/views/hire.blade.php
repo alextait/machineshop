@@ -18,7 +18,7 @@
             <div class="projects-container">
                     <div class="column-6">
                         <a href="/hire/equipment-hire/" class="project-box">
-                            <img src="/img/article/equipment_hire_down.jpg?anchor=center&amp;mode=crop&amp;width=690&amp;height=310&amp;rnd=130825758340000000" alt="project-name" />
+                            <img src="/img/equipment_hire.jpg" alt="project-name" />
                             <h4 class="image-overlay-title">Equipment Hire</h4>
                         </a>
                     </div>

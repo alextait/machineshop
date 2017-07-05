@@ -1,7 +1,12 @@
 
-@extends('layouts.main')
+@include('partials.head')
 
-@section('content')
+
+<body class="contact menu-push">
+
+<div class="wrapper" >
+        
+    @include('partials.header')   
       
     <section>
         <div class="map-container">
@@ -16,5 +21,12 @@
             </div>
         </div>
     </section>   
+</div> {{-- End wrapper --}}
+ 
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCJLfurw9KOuUKjGYrBTvMv65vAU11z1wU"></script>
+ 
+@include('partials.search')
 
-@endsection
+@include('partials.footer')
+
+

@@ -13,6 +13,13 @@ class StaticPagesController extends Controller{
 		return view('hire');
 	}
 
+	public function getEquipmentHire(){
+		return view('equipment-hire');
+	}
+
+
+	  
+
 	//
 	public function getContact(){
 		return view('contact');
