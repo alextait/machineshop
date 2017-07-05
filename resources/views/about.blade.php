@@ -16,7 +16,7 @@
 
    
 
-        <div class="banner-page">
+        <div class="banner-page" style="margin-top:2.5em;">
             <div class="banner-text center">
                 <div class="container">
                     <h1>About Us</h1>

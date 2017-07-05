@@ -25,7 +25,7 @@
     <script type="text/javascript" src="{{asset('js/global.js')}}"></script>
 	
 
-    {{-- <link href="{{asset('css/app.css')}}" rel="stylesheet" type="text/css" /> --}}
+   
 
 	<script src="{{asset('js/transition.min.js')}}"></script>
    

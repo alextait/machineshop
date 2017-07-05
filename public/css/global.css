@@ -676,9 +676,11 @@ footer .address ul li {
 }
 }footer .address ul li:first-child {
     margin-bottom: 20px;
-    width: 100%}
+  
+}
 @media screen and (min-width:992px) {
-    footer .address ul li: first-child {
+
+footer .address ul li: first-child {
     margin-bottom: 0;
     width: auto;
 }

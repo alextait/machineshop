@@ -162,7 +162,14 @@ class ProjectController extends Controller
         $Project->heading = $request->heading;
         $Project->subheading = $request->subheading;
         $Project->detail = $request->detail;
-        $Project->youtubelink = $request->youtubelink;
+        
+        if (preg_match('%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i', $request->youtubelink, $match)) {
+            $video_id = $match[1];
+        }
+
+        $Project->youtubelink = $video_id;
+
+
         $Project->priority = $request->priority;
 
         $Project->save();
@@ -261,7 +268,14 @@ class ProjectController extends Controller
         $Project->heading = $request->heading;
         $Project->subheading = $request->subheading;
         $Project->detail = $request->detail;
-        $Project->youtubelink = $request->youtubelink;
+       // $Project->youtubelink = $request->youtubelink;
+
+        if (preg_match('%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i', $request->youtubelink, $match)) {
+            $video_id = $match[1];
+        }
+        
+        $Project->youtubelink = $video_id;
+
         $Project->priority = $request->priority;
 
         $Project->save();
