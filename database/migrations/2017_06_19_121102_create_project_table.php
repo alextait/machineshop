@@ -15,13 +15,16 @@ class CreateProjectTable extends Migration
     public function up()
     {
         Schema::create('projects', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('id')->unsigned();
             $table->timestamps();
             $table->string('heading')->default('');
             $table->string('subHeading')->nullable();
             $table->string('youtubeLink')->nullable();
             $table->text('detail')->nullable();
             $table->enum('priority', ['1', '2', '3'])->default('3');
+
+          // $table->foreign('id')->references('project_id')->on('category_project')->onDelete('cascade');
+
         });
     }
 

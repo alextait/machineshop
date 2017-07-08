@@ -38,36 +38,66 @@ class ProjectController extends Controller
 
     public function getSpecialProjects($categoryid){
         $aboutSection = 'Machine Shop have been developing and creating interactive and one off creations for as long as we can remember. Our Special Projects division was founded to make use of our diverse knowledge and experience. From the smallest visual detail to the most complex mechanical system we offer a complete service to bring your crazy ideas to life. Each project is considered to make the most of the creative idea whilst maintaining realism in budgeting. From initial ideas through 3D CAD, modelling, prototyping, software development and soak testing to complete production runs, our team are simply unfazed by the impossible.' ;   
-        $subCategoryItems  =  $this->getSubCategoryItems(9);
-
+        $subCategoryItems  =  $this->getSubCategoryItems($categoryid);
        return  $this->getProjectList('Special Projects', 'special-projects', $aboutSection, $categoryid, $subCategoryItems  );
     }
 
     public function getSubCategoryItems($categoryid){
-            //get any sub categories for the specials
-        $subCategoryItems = Category::where('parentCategory_id', 1)->get();
+        //get any sub categories for the specials
+       
+        $subCategoryItems = Category::where('parentCategory_id', $categoryid)->get();
 
-
-        // DB::table('Projecttree')
-        //    	->join('Projecttocategory', 'Projecttocategory.categoryid', '=', 'Projecttree.childid')
-        //    	->join('Projectcategory', 'Projecttocategory.categoryid', '=', 'Projectcategory.categoryid')
-        //    	->select('Projecttree.childid, Projecttocategory.category , Projecttocategory.categoryid ')
-        //    	->where('Projecttree.parentid', '=', $categoryid);
         return  $subCategoryItems;
      }   
 
     public function getSpecialEffectsProjects($categoryid){
         $aboutSection = 'Machine Shop Special Effects provides a range of live atmospheric and pyrotechnic floor-effects with our reliable and experienced team of technicians. We also offer superior modelmaking and animatronics services from our team of in-house specialists.' ;   
-    	$subCategoryItems  =  $this->getSubCategoryItems(1);
+    	$subCategoryItems  =  $this->getSubCategoryItems($categoryid);
        	return  $this->getProjectList('Special Effects', 'special-effects', $aboutSection, $categoryid , $subCategoryItems);
     }
 
 
     public function getProjectList($pagetitle, $pagename, $aboutSection, $categoryid, $subCategoryItems){
        
-        $Projects = Project::orderBy('priority', 'asc')->paginate(10);
+        //Perhaps first get the list of project ids
+
+        $Projects = Category::find([1,2])->projects()->distinct();
+        
+
+        var_dump( $Projects->count());
+        exit();
 
 
+         /*
+            FROM projects
+            JOIN category_project cp on cp.project_id = projects.id 
+            JOIN categories on categories.id = cp.category_id
+            WHERE categories.id = 1
+            OR categories.id IN (
+                select catParent.id 
+                from categories catParent 
+                where catParent.parentCategory_id = 1
+                )
+           
+            ',['project_id' => $project_id])->orderBy('priority', 'asc');
+
+
+       
+            orderBy('priority', 'asc')
+                 ->paginate(10);
+
+            $Projects = Project::whereHas('comments', function ($query) {
+                $query->where('content', 'like', 'foo%');
+            })->get();   
+
+
+            $posts = Post::whereHas('comments', function ($query) {
+                $query->where('content', 'like', 'foo%');
+            })->get();
+        */
+
+
+        // /Category::where('parentCategory_id', $categoryid)->get();
         return view('view-projects')
             ->with('Projects', $Projects)
             ->with('pagename',  $pagename)
@@ -83,9 +113,6 @@ class ProjectController extends Controller
             ->with('Project', $Project);
     }
 
-    public function getNews(){
-       return view('news') ->with('pagelink', 'news');
-    }
 
     public function getAbout(){
        return view('about');
@@ -168,13 +195,8 @@ class ProjectController extends Controller
         }
 
         $Project->youtubelink = $video_id;
-
-
         $Project->priority = $request->priority;
-
         $Project->save();
-
-
 
         //Save carousel
         if($request->hasFile('carousel_image')){

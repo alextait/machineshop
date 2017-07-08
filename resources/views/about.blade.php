@@ -1,7 +1,3 @@
-
-
-
-
 @include('partials.head')
 
 <body class="about menu-push">

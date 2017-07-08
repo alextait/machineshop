@@ -1,4 +1,21 @@
 
+<style>
+    
+    .project-box img {
+        border:10px solid white;
+        opacity: .8;
+        width: 100%;
+        display: block;
+        -webkit-transform: scale(1.2);
+        transform: scale(1.2);
+        -webkit-transition: -webkit-transform .35s, opacity .35s;
+        transition: transform .35s, opacity .35s;
+    }
+
+</style>
+
+
+
 @extends('layouts.main')
 
 @section('content')

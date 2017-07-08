@@ -13,10 +13,10 @@
             <nav>
                 <ul>                   
                     <li class="{{ strpos(Request::path(), 'special-effects') !== false ? 'active' : ''  }}">
-                        <a href="/special-effects/4/">Special Effects</a>
+                        <a href="/special-effects/1/">Special Effects</a>
                     </li>
                     <li class="{{ strpos(Request::path(), 'special-projects') !== false ? 'active' : ''  }}">
-                        <a href="/special-projects/9/">Special Projects</a>
+                        <a href="/special-projects/2/">Special Projects</a>
                     </li>
                     <li class="{{ Request::path() ==  'hire' ? 'active' : ''  }}">
                         <a href="/hire/">Hire</a>

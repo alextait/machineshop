@@ -21,7 +21,11 @@ Route::get('/view-project/{projectid}',  ['uses' =>'ProjectController@getViewPro
 //Other Links
 Route::get('/hire', 'StaticPagesController@getHire');
 Route::get('/hire/equipment-hire', 'StaticPagesController@getEquipmentHire');
-Route::get('/news', 'ProjectController@getNews');
+
+
+
+
+
 Route::get('/about', 'ProjectController@getAbout');
 Route::get('/contact', 'StaticPagesController@getContact');
 
@@ -38,4 +42,7 @@ Route::resource('categoryproject' , 'CategoryProjectController', ['except' => 'd
 Route::delete('/categoryproject/destroy/{project_id}/{category_id}',  ['uses' =>'CategoryProjectController@destroy'] );
 
 Route::get('/populatedata', 'MainController@populateData');
+
+Route::resource('admin/news' , 'NewsController');
+Route::get('/news', 'NewsController@getNews');
 

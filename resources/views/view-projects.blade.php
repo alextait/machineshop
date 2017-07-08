@@ -45,7 +45,11 @@
 			</div>
 			<div class="row projects-container">
 
+    
+
 				@foreach($Projects as $Project)
+
+
 
 					 @php
 						$thumbFile = '';
@@ -55,6 +59,7 @@
 							}
 						}
 					 @endphp
+
 
 					<div class="project-column">
 						 <a href="/view-project/{{ $Project->id }}/" class="project-box">
@@ -82,9 +87,9 @@
 				
 			</div>
 
-			<div class="text-right ">
+		{{-- 	<div class="text-right ">
 				{!! $Projects->links() !!}
-			</div>
+			</div> --}}
 
 
 		
