@@ -43,6 +43,6 @@ Route::delete('/categoryproject/destroy/{project_id}/{category_id}',  ['uses' =>
 
 Route::get('/populatedata', 'MainController@populateData');
 
-Route::resource('admin/news' , 'NewsController');
+Route::resource('news' , 'NewsController');
 Route::get('/news', 'NewsController@getNews');
 

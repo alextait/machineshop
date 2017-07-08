@@ -20,21 +20,22 @@
                     </p>
                 </div>
                 <div class="column-8 shift-1">
-                    {!!$NewsItem->body!!}
+                    {!! substr($NewsItem->body,0,70)  !!}
+                    <br />
+                    <a href="{{route('news.show', $NewsItem->id)}}">Read the full story</a>
                 </div>
             </div>
         @endforeach
        
 
 
-
         <div class="pagination-wrapper">
-    <ul class="pagination" role="pagination">
+        <ul class="pagination" role="pagination">
 
 
 
 
-    </ul>
+        </ul>
 </div>
 
     </div>
