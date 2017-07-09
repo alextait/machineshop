@@ -59,43 +59,17 @@ class ProjectController extends Controller
 
     public function getProjectList($pagetitle, $pagename, $aboutSection, $categoryid, $subCategoryItems){
        
-        //Perhaps first get the list of project ids
-
-        $Projects = Category::find([1,2])->projects()->distinct();
-        
-
-        var_dump( $Projects->count());
-        exit();
+        //Get array of all categories in tree
+        $categories =  [(int)$categoryid];
+        $SubCategories  = Category::where('parentCategory_id', '1')->pluck('id')->toArray();
+        $allCategories =  array_merge($categories, $SubCategories);
 
 
-         /*
-            FROM projects
-            JOIN category_project cp on cp.project_id = projects.id 
-            JOIN categories on categories.id = cp.category_id
-            WHERE categories.id = 1
-            OR categories.id IN (
-                select catParent.id 
-                from categories catParent 
-                where catParent.parentCategory_id = 1
-                )
-           
-            ',['project_id' => $project_id])->orderBy('priority', 'asc');
 
-
-       
-            orderBy('priority', 'asc')
-                 ->paginate(10);
-
-            $Projects = Project::whereHas('comments', function ($query) {
-                $query->where('content', 'like', 'foo%');
-            })->get();   
-
-
-            $posts = Post::whereHas('comments', function ($query) {
-                $query->where('content', 'like', 'foo%');
-            })->get();
-        */
-
+        //Get the disctinct projects for the array of project ids
+        $Projects = Project::whereHas("categories", function ($query) use ($allCategories) {
+            return $query->whereIn('category_id', $allCategories);
+        })->distinct()->get();
 
         // /Category::where('parentCategory_id', $categoryid)->get();
         return view('view-projects')

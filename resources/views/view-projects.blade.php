@@ -2,6 +2,7 @@
 @include('partials.head')
 
 
+
 <body class="about menu-push">
 
 <div class="wrapper" style="background-image:url('/img/background.jpg')">
@@ -58,6 +59,7 @@
 								$thumbFile = $image->filename; 
 							}
 						}
+
 					 @endphp
 
 
