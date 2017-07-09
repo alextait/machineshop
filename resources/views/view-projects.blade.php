@@ -24,11 +24,10 @@
 					<li class="active">
 						<a href="/all-projects/">All Projects</a>
 					</li>
-
 					@foreach($subCategoryItems as $subCategoryItem)
 						<div class="project-column">
 							<li>
-								<a href="/special-projects/{{$subCategoryItem->id}}">
+								<a href="/{{$pagename}}/{{$subCategoryItem->id}}">
 									{{$subCategoryItem->category}}
 								</a>
 							</li>
@@ -45,24 +44,15 @@
 				</div>
 			</div>
 			<div class="row projects-container">
-
-    
-
 				@foreach($Projects as $Project)
-
-
-
-					 @php
+					@php
 						$thumbFile = '';
 						foreach ($Project->images as $image){
 							if($image->type == 'thumb'){ 
 								$thumbFile = $image->filename; 
 							}
 						}
-
-					 @endphp
-
-
+					@endphp
 					<div class="project-column">
 						 <a href="/view-project/{{ $Project->id }}/" class="project-box">
 							@php
@@ -70,11 +60,8 @@
 								if($thumbFile == '' || !file_exists($fileLocation)) {
 									$fileLocation = 'img/article/thumb-placeholder.png';
 								}
-
 							@endphp
 
-						
-						
 							<img src="/{{$fileLocation}}" title="{{$fileLocation}}" />  
 							
 							  
@@ -89,9 +76,9 @@
 				
 			</div>
 
-		{{-- 	<div class="text-right ">
+			<div class="text-right ">
 				{!! $Projects->links() !!}
-			</div> --}}
+			</div>
 
 
 		

@@ -1090,20 +1090,24 @@ header .navigation a:hover {
 }
 @media screen and (min-width:992px) {
     .mobile-btn-subnav {
-    display: none;
-}
-}.pagination-wrapper {
+        display: none;
+    }
+    }
+.pagination-wrapper {
     overflow: hidden;
 }
 .pagination {
     margin: 0;
+
 }
 @media screen and (min-height:960px) {
     .pagination {
-    margin-top: 20px;
-    margin-bottom: 20px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
 }
-}.pagination ul {
+
+.pagination ul {
     margin: 0;
     padding: 0;
     font-family: #282727;
@@ -1116,20 +1120,32 @@ header .navigation a:hover {
     margin-left: 15px;
     min-height: 30px;
     background-color: #282727;
+
 }
 .pagination li.active {
     background-color: #91AA9D;
+    padding: 5px 8px;
 }
+
+
+
 .pagination a {
     display: block;
     padding: 5px 8px;
     color: #fff;
 }
+
+
+
 .pagination span {
     margin-top: 3px;
     display: block;
     font-size: 14px;
 }
+.pagination .disabled span {
+    padding: 5px 8px;
+}
+
 .page-pagination {
     float: right;
 }

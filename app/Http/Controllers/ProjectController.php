@@ -37,6 +37,11 @@ class ProjectController extends Controller
     }
 
     public function getSpecialProjects($categoryid){
+        //This could be a parent or a subcategory.
+        //Need to get top level so that we can pass that to get sub categories
+
+        
+
         $aboutSection = 'Machine Shop have been developing and creating interactive and one off creations for as long as we can remember. Our Special Projects division was founded to make use of our diverse knowledge and experience. From the smallest visual detail to the most complex mechanical system we offer a complete service to bring your crazy ideas to life. Each project is considered to make the most of the creative idea whilst maintaining realism in budgeting. From initial ideas through 3D CAD, modelling, prototyping, software development and soak testing to complete production runs, our team are simply unfazed by the impossible.' ;   
         $subCategoryItems  =  $this->getSubCategoryItems($categoryid);
        return  $this->getProjectList('Special Projects', 'special-projects', $aboutSection, $categoryid, $subCategoryItems  );
@@ -61,15 +66,14 @@ class ProjectController extends Controller
        
         //Get array of all categories in tree
         $categories =  [(int)$categoryid];
-        $SubCategories  = Category::where('parentCategory_id', '1')->pluck('id')->toArray();
+        $SubCategories  = Category::where('parentCategory_id', $categoryid)->pluck('id')->toArray();
         $allCategories =  array_merge($categories, $SubCategories);
-
-
 
         //Get the disctinct projects for the array of project ids
         $Projects = Project::whereHas("categories", function ($query) use ($allCategories) {
             return $query->whereIn('category_id', $allCategories);
-        })->distinct()->get();
+        })->distinct()->paginate(8);
+
 
         // /Category::where('parentCategory_id', $categoryid)->get();
         return view('view-projects')
