@@ -36,17 +36,6 @@ class ProjectController extends Controller
             ;
     }
 
-    public function getSpecialProjects($categoryid){
-        //This could be a parent or a subcategory.
-        //Need to get top level so that we can pass that to get sub categories
-
-        
-
-        $aboutSection = 'Machine Shop have been developing and creating interactive and one off creations for as long as we can remember. Our Special Projects division was founded to make use of our diverse knowledge and experience. From the smallest visual detail to the most complex mechanical system we offer a complete service to bring your crazy ideas to life. Each project is considered to make the most of the creative idea whilst maintaining realism in budgeting. From initial ideas through 3D CAD, modelling, prototyping, software development and soak testing to complete production runs, our team are simply unfazed by the impossible.' ;   
-        $subCategoryItems  =  $this->getSubCategoryItems($categoryid);
-       return  $this->getProjectList('Special Projects', 'special-projects', $aboutSection, $categoryid, $subCategoryItems  );
-    }
-
     public function getSubCategoryItems($categoryid){
         //get any sub categories for the specials
        
@@ -55,15 +44,47 @@ class ProjectController extends Controller
         return  $subCategoryItems;
      }   
 
-    public function getSpecialEffectsProjects($categoryid){
-        $aboutSection = 'Machine Shop Special Effects provides a range of live atmospheric and pyrotechnic floor-effects with our reliable and experienced team of technicians. We also offer superior modelmaking and animatronics services from our team of in-house specialists.' ;   
-    	$subCategoryItems  =  $this->getSubCategoryItems($categoryid);
-       	return  $this->getProjectList('Special Effects', 'special-effects', $aboutSection, $categoryid , $subCategoryItems);
+
+    public function getSpecialProjects($categoryid){
+
+        //This could be a parent or a subcategory.
+        //Need to get top level so that we can pass that to get sub categories
+        $category = Category::find($categoryid);
+        if( $category->parentCategory_id != 0){
+            $parentCategoryID = $category->parentCategory_id;
+        }else{
+            $parentCategoryID = $categoryid;
+        }
+
+        $aboutSection = 'Machine Shop have been developing and creating interactive and one off creations for as long as we can remember. Our Special Projects division was founded to make use of our diverse knowledge and experience. From the smallest visual detail to the most complex mechanical system we offer a complete service to bring your crazy ideas to life. Each project is considered to make the most of the creative idea whilst maintaining realism in budgeting. From initial ideas through 3D CAD, modelling, prototyping, software development and soak testing to complete production runs, our team are simply unfazed by the impossible.' ;   
+       
+       return  $this->getProjectList('Special Projects', 'special-projects', $aboutSection, $categoryid, $parentCategoryID  );
     }
 
 
-    public function getProjectList($pagetitle, $pagename, $aboutSection, $categoryid, $subCategoryItems){
+    public function getSpecialEffectsProjects($categoryid){
        
+        
+        //This could be a parent or a subcategory.
+        //Need to get top level so that we can pass that to get sub categories
+        $category = Category::find($categoryid);
+        if( $category->parentCategory_id != 0){
+            $parentCategoryID = $category->parentCategory_id;
+        }else{
+            $parentCategoryID = $categoryid;
+        }
+
+
+        $aboutSection = 'Machine Shop Special Effects provides a range of live atmospheric and pyrotechnic floor-effects with our reliable and experienced team of technicians. We also offer superior modelmaking and animatronics services from our team of in-house specialists.' ;   
+    	
+       	return  $this->getProjectList('Special Effects', 'special-effects', $aboutSection, $categoryid , $parentCategoryID);
+    }
+
+
+    public function getProjectList($pagetitle, $pagename, $aboutSection, $categoryid, $parentCategoryID){
+       $subCategoryItems  =  $this->getSubCategoryItems( $parentCategoryID);
+       
+    
         //Get array of all categories in tree
         $categories =  [(int)$categoryid];
         $SubCategories  = Category::where('parentCategory_id', $categoryid)->pluck('id')->toArray();
@@ -81,7 +102,10 @@ class ProjectController extends Controller
             ->with('pagename',  $pagename)
             ->with('pagetitle',  $pagetitle)
             ->with('aboutSection', $aboutSection)
-            ->with('subCategoryItems', $subCategoryItems);
+            ->with('subCategoryItems', $subCategoryItems)
+            ->with('parentCategoryID', $parentCategoryID)
+            ->with('categoryid', $categoryid)
+            ;
 
     }
 

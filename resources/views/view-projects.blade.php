@@ -3,6 +3,7 @@
 
 
 
+
 <body class="about menu-push">
 
 <div class="wrapper" style="background-image:url('/img/background.jpg')">
@@ -18,23 +19,25 @@
 			
 		 <h1 class="center">{{$pagetitle}}</h1>
 
-			<div class="mobile-btn-subnav" id="subnav-toggle">Menu</div>
-			<nav class="page-navigation">
-				<ul>
-					<li class="active">
-						<a href="/all-projects/">All Projects</a>
-					</li>
-					@foreach($subCategoryItems as $subCategoryItem)
-						<div class="project-column">
-							<li>
-								<a href="/{{$pagename}}/{{$subCategoryItem->id}}">
-									{{$subCategoryItem->category}}
-								</a>
-							</li>
-						</div>
-					@endforeach
-				</ul>
-			</nav>
+		 @if(!$subCategoryItems->isEmpty() )
+				<div class="mobile-btn-subnav" id="subnav-toggle">Menu</div>
+				<nav class="page-navigation">
+					<ul>
+						<li  class="{{ $categoryid == $parentCategoryID ? 'active' : ''  }}">
+							<a href="/{{$pagename}}/{{$parentCategoryID}}">All Projects</a>
+						</li>
+						@foreach($subCategoryItems as $subCategoryItem)
+							<div class="project-column">
+								<li class="{{ $subCategoryItem->id == $categoryid ? 'active' : ''  }}">
+									<a href="/{{$pagename}}/{{$subCategoryItem->id}}">
+										{{$subCategoryItem->category}}
+									</a>
+								</li>
+							</div>
+						@endforeach
+					</ul>
+				</nav>
+			@endif
 
 			<div class="row">
 				<div class="category-summary">
