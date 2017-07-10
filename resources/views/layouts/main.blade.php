@@ -14,6 +14,11 @@
 	    @include('partials.search')
 
 		@include('partials.footer')
+
+		
 	</div>
+
+</body>
+</html>
 
 

@@ -1,48 +1,39 @@
 
-<style>
-    
-    .project-box img {
-        border:10px solid white;
-        opacity: .8;
-        width: 100%;
-        display: block;
-        -webkit-transform: scale(1.2);
-        transform: scale(1.2);
-        -webkit-transition: -webkit-transform .35s, opacity .35s;
-        transition: transform .35s, opacity .35s;
-    }
-
-</style>
 
 
+@include('partials.head')
 
-@extends('layouts.main')
 
-@section('content')
-
+<body class="hirelanding menu-push">
+    <div class="wrapper" style="background-image:url(/img/background.jpg);">
         
-<section  class="">
-    <div class="container " >
+    @include('partials.header')
 
-        <h1 class="center">Hire</h1>
-
-        <div class="row">
-            <div class="category-summary">
-                <p>Machine Shop have a large range of equipment available for hire - from floor effects to specialist triggering equipment to soft  rop weapons. We also offer specialist 3D services and high-speed shooting equipment. If you cannot see what you need call us!</p>
+    <section>
+        <div class="container">
+            <h1 class="center">Hire</h1>
+            <div class="row">
+                <div class="category-summary">
+                    <p>Machine Shop have a large range of equipment available for hire - from floor effects to specialist triggering equipment to soft  rop weapons. We also offer specialist 3D services and high-speed shooting equipment. If you cannot see what you need call us!</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="projects-container">
+                        <div class="column-6">
+                            <a href="/hire/equipment-hire/" class="project-box">
+                                <img src="/img/equipment_hire.jpg" alt="project-name" />
+                                <h4 class="image-overlay-title">Equipment Hire</h4>
+                            </a>
+                        </div>
+                </div>
             </div>
         </div>
-        <div class="row">
-            <div class="projects-container">
-                    <div class="column-6">
-                        <a href="/hire/equipment-hire/" class="project-box">
-                            <img src="/img/equipment_hire.jpg" alt="project-name" />
-                            <h4 class="image-overlay-title">Equipment Hire</h4>
-                        </a>
-                    </div>
-            </div>
-        </div>
-    </div>
-</section> 
+    </section>
+</div>
+    
+@include('partials.search')
 
+@include('partials.footer')
 
-@endsection
+ 
+    

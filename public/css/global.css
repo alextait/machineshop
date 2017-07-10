@@ -1185,8 +1185,10 @@ header .navigation a:hover {
     display: block;
     position: relative;
     z-index: 2;
+    }
 }
-}.breadcrumb li {
+
+.breadcrumb li {
     float: left;
     margin-right: 3px;
 }
