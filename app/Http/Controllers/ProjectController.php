@@ -93,7 +93,7 @@ class ProjectController extends Controller
         //Get the disctinct projects for the array of project ids
         $Projects = Project::whereHas("categories", function ($query) use ($allCategories) {
             return $query->whereIn('category_id', $allCategories);
-        })->distinct()->paginate(8);
+        })->distinct()->paginate(10);
 
 
         // /Category::where('parentCategory_id', $categoryid)->get();

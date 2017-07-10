@@ -1199,43 +1199,54 @@ header .navigation a:hover {
 }
 @media screen and (min-height:960px) {
     .breadcrumb-container {
-    padding-top: 50px;
-    padding-bottom: 50px;
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+    .projects-container {
+        margin-top: 30px;
+    }
 }
-.projects-container {
-    margin-top: 30px;
-}
-}@media screen and (min-width:768px) {
+
+@media screen and (min-width:768px) {
     .project-column {
-    float: left;
-    display: block;
-    margin-right: 1.35446%;
-    width: 49.32277%}
-.project-column:last-child, .project-column:nth-child(2n) {
-    margin-right: 0;
+        float: left;
+        display: block;
+        margin-right: 1.35446%;
+        width: 49.32277%
+    }
+    .project-column:last-child, .project-column:nth-child(2n) {
+        margin-right: 0;
+    }
+    .project-column:nth-child(2n+1) {
+        clear: left;
+    }
 }
-.project-column:nth-child(2n+1) {
+
+@media screen and (min-width:992px) {
+    .project-column, .project-column:nth-child(2n) {
+        margin-right: 1.35446%
+    }
+    .project-column {
+        float: left;
+        display: block;
+        width: 18.91643%
+
+    }
+    .project-column:nth-child(2n+1) {
+        clear: none;
+    }
+    .project-column:last-child, .project-column:nth-child(5n) {
+        margin-right: 0;
+    }
+    .project-column:nth-child(5n+1) {
+        clear: left;
+    }
+}
+
+.styleguide-colours li:nth-child(3n+1), .styleguide-logo:nth-child(3n+1) {
     clear: left;
 }
-}@media screen and (min-width:992px) {
-    .project-column, .project-column: nth-child(2n) {
-    margin-right: 1.35446%}
-.project-column {
-    float: left;
-    display: block;
-    width: 18.91643%}
-.project-column:nth-child(2n+1) {
-    clear: none;
-}
-.project-column:last-child, .project-column:nth-child(5n) {
-    margin-right: 0;
-}
-.project-column:nth-child(5n+1) {
-    clear: left;
-}
-}.styleguide-colours li:nth-child(3n+1), .styleguide-logo:nth-child(3n+1) {
-    clear: left;
-}
+
 .category-summary {
     margin-top: 20px;
 }
@@ -1245,6 +1256,7 @@ header .navigation a:hover {
     background-color: #000;
     overflow: hidden;
 }
+
 @media screen and (min-width:992px) {
     .category-summary {
         margin-top: 0;

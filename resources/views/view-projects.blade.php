@@ -6,17 +6,20 @@
 
 <body class="about menu-push">
 
-<div class="wrapper" style="background-image:url('/img/background.jpg')">
+<div class="wrapper" style="background-image:url('/img/projectbackground.jpg')">
         
     @include('partials.header')   
 
         
-    <div class="background-image" style="background-image:url('/img/background-website.png');"></div>
-    <div class="image-overlay"></div>
+    <div class="background-image" style="background-image:url('/img/projectbackground.jpg');"></div>
+  
 
 	<section>
 		<div class="container">
 			
+
+
+
 		 <h1 class="center">{{$pagetitle}}</h1>
 
 		 @if(!$subCategoryItems->isEmpty() )
