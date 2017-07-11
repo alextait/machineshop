@@ -10,8 +10,28 @@
                 
         @include('partials.header')
 
+
+
+         @php
+            $thumbFile = '';
+            $featuredFile = '';
+            $extraImages = array();
+            foreach ($Project->images as $image){
                 
-        <div class="background-image" style="background-image:url('/img/article/5/big.jpg"></div>
+                if($image->type == 'extra'){ 
+                    array_push($extraImages , $image->filename);
+                } 
+                if($image->type == 'featured'){ 
+                    $featuredFile = $image->filename; 
+                } 
+                
+                if($image->type == 'thumb'){ 
+                    $thumbFile = $image->filename; 
+                }
+            }
+        @endphp
+                
+        <div class="background-image" style="background-image:url('/img/article/{!!$Project->id!!}/{{$featuredFile}}"></div>
         <div class="image-overlay"></div>
             
         <div class="banner-page">
@@ -25,24 +45,7 @@
         <section>
             <div class="container">
 
-                @php
-                    $thumbFile = '';
-                    $featuredFile = '';
-                    $extraImages = array();
-                    foreach ($Project->images as $image){
-                        
-                        if($image->type == 'extra'){ 
-                            array_push($extraImages , $image->filename);
-                        } 
-                        if($image->type == 'featured'){ 
-                            $featuredFile = $image->filename; 
-                        } 
-                        
-                        if($image->type == 'thumb'){ 
-                            $thumbFile = $image->filename; 
-                        }
-                    }
-                @endphp
+               
 
                 <div class="row">
                     <div class="column-4 project-carousel">
