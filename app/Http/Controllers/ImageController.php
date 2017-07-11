@@ -40,10 +40,14 @@ class ImageController extends Controller
         //get the project to which we will be adding our image
         $Project = Project::find($request->Project_id);
         //Save carousel
-        if($request->hasFile('carousel_image')){
-            $imageToUpload = $request->file('carousel_image');
-            ImageService::saveCarouselImage($imageToUpload, $Project->heading, $Project->id);
+        $images=array();
+        if($files=$request->file('carouselImages')){
+            foreach($files as $file){
+                 ImageService::saveCarouselImage($file, $request->heading, $Project->id);
+
+            }
         }
+
         //Redirect to the edit page just in case they wish to edit the item they just added
         return redirect()->route('project.edit', $Project->id);
     }

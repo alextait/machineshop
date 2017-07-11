@@ -23,7 +23,7 @@
 		<section>
 			
 			<h1>
-			{{{ URL::to('/') }}}	Editing Project "{{$Project->heading}} "
+				Editing Project "{{$Project->heading}} "
 			</h1>
 
 			<a href="/project/create" class="btn btn-primary" >Create Project</a>
@@ -148,7 +148,7 @@
 											{{ Html::image('img/article/' . $Project->id . '/extra/' . $ExtraImage->filename) }}
 										</div>
 										{!! Form::model($Project, ['url' => ['/image/destroy', $ExtraImage->id, $Project->id], 'method' => 'DELETE' ]) !!}
-											<input type="submit" value="Delete" class="btn btn-primary pull-right" />
+											<input type="submit" value="Delete" class="btn btn-primary pull-left" />
 											<br/><br/><br/>
 										{!! Form::close() !!}  
 									
@@ -167,12 +167,13 @@
 									<h3>
 										Add Carousel Image
 									</h3>
-									<label class=" btn-file">
-										{{ Form::label('carousel_image', 'Select Carousel Image')}}
-										{{ Form::file('carousel_image')}}
-									</label>  
+									<label class=" btn-file"></label>  
+									<input required type="file" class="form-control" name="carouselImages[]" placeholder="" multiple>
+
+									
+									
 									<br />
-									<input type="submit" value="Add Image" class="btn btn-primary pull-left" />
+									<input type="submit" value="Add Carousel Image" class="btn btn-primary pull-left" />
 							
 								 {!! Form::close() !!}  
 							</div>

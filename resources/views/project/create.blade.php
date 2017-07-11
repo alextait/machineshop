@@ -36,7 +36,7 @@
                 <div class="row">
                     <div class="column-3">
                         <label for="heading" />Heading</label>
-                        <input type="text" class="form-control" name="heading" placeholder="Heading" />
+                        <input required type="text" class="form-control" name="heading" placeholder="Heading" />
                     </div>
                     <div class="column-3">
                         <label for="subheading" >Sub Heading</label>
@@ -111,11 +111,9 @@
                             {{ Form::file('thumb_image')}}
                         </label>    
                 
-                       
-                        <label class=" btn-file ">
-                            {{ Form::label('carousel_image', 'Carousel Image')}}
-                            {{ Form::file('carousel_image')}}
-                        </label>
+                        <h3>Carousel Images</h3>
+                        <label class=" btn-file"></label>  
+                        <input type="file" class="form-control" name="carouselImages[]" placeholder="" multiple>
 
                  
                         <div class="pull-right">

@@ -192,6 +192,7 @@ class ProjectController extends Controller
         $Project->subheading = $request->subheading;
         $Project->detail = $request->detail;
         
+        $video_id = '';
         if (preg_match('%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i', $request->youtubelink, $match)) {
             $video_id = $match[1];
         }
@@ -201,9 +202,12 @@ class ProjectController extends Controller
         $Project->save();
 
         //Save carousel
-        if($request->hasFile('carousel_image')){
-            $imageToUpload = $request->file('carousel_image');
-            ImageService::saveCarouselImage($imageToUpload, $request->heading, $Project->id);
+        $images=array();
+        if($files=$request->file('carouselImages')){
+            foreach($files as $file){
+                 ImageService::saveCarouselImage($file, $request->heading, $Project->id);
+
+            }
         }
 
         //Save featured
@@ -222,9 +226,14 @@ class ProjectController extends Controller
 
 
         //Add links to categorys
-
-        if( $request->category1 != ''){
+        if( $request->category1 != '' && $request->category1 != 'Select'){
            $this->createCatgoryProjectLink($Project->id, (int)$request->category1);
+        }
+        if( $request->category2 != '' && $request->category2 != 'Select'){
+           $this->createCatgoryProjectLink($Project->id, (int)$request->category2);
+        }
+        if( $request->category3 != '' && $request->category3 != 'Select'){
+           $this->createCatgoryProjectLink($Project->id, (int)$request->category3);
         }
 
         //Redirect to the edit page just in case they wish to edit the item they just added
