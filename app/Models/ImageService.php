@@ -61,7 +61,7 @@ class ImageService extends Model
         }
         $alphaHeading = preg_replace('/[^a-z\d ]/i', '', $heading);
         $alphaHeading = str_replace(' ', '_', $alphaHeading  );
-        $filename = $alphaHeading . time() . $type . '.' .  $imageToSave->getClientOriginalExtension();
+        $filename = $alphaHeading . time() . $type . uniqid() . '.' .  $imageToSave->getClientOriginalExtension();
         $location =  $path . $filename;
         if($dimensionX == 0 && $dimensionY == 0){
             ImageTool::make($imageToSave)->save($location);

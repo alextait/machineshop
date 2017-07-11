@@ -168,7 +168,7 @@
 										Add Carousel Image
 									</h3>
 									<label class=" btn-file"></label>  
-									<input required type="file" class="form-control" name="carouselImages[]" placeholder="" multiple>
+									<input  type="file" class="form-control" name="carouselImages[]" placeholder="" multiple>
 
 									
 									
