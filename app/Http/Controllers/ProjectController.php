@@ -302,7 +302,7 @@ class ProjectController extends Controller
         $Project->subheading = $request->subheading;
         $Project->detail = $request->detail;
        // $Project->youtubelink = $request->youtubelink;
-
+        $video_id = '';
         if (preg_match('%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i', $request->youtubelink, $match)) {
             $video_id = $match[1];
         }

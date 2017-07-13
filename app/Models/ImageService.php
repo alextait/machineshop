@@ -30,7 +30,7 @@ class ImageService extends Model
      */
     public static  function saveFeaturedImage($imageToSave,$heading,$project_id)
     {
-       self::saveImage($imageToSave, 'featured', $heading, $project_id, 1920, 1080);
+       self::saveImage($imageToSave, 'featured', $heading, $project_id, 3840 , 2160 );
     }
 
     /**
