@@ -19,7 +19,7 @@ class ImageService extends Model
      */
     public static function saveCarouselImage($imageToSave,$heading,$project_id)
     {
-	   self::saveImage($imageToSave, 'extra', $heading, $project_id, 0, 0, '/extra');
+	   self::saveImage($imageToSave, 'extra', $heading, $project_id, 383, 286, '/extra');
     }
 
     /**
