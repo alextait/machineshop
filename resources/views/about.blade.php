@@ -1,3 +1,6 @@
+@section('title', '| About')
+@section('description', 'Machine Shop Special Effects Technicians are well trained and experienced professionals.')
+
 @include('partials.head')
 
 <body class="about menu-push">

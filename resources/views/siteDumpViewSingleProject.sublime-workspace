@@ -1,0 +1,475 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/C/Users/alex/Desktop/machine shop view single project/Machine Shop _ Sony _ 4K TV volcano eruption.html",
+			"settings":
+			{
+				"buffer_size": 11566,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 127.0,
+		"last_filter": "install",
+		"selected_items":
+		[
+			[
+				"install",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 392.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/Users/alex/Desktop/machine shop view single project"
+	],
+	"file_history":
+	[
+		"/C/xampp/htdocs/machineshop/resources/views/view-project.blade.php",
+		"/C/Users/alex/Desktop/machine shop view single project/Machine Shop _ Sony _ 4K TV volcano eruption.html",
+		"/C/xampp/htdocs/machineshop/resources/views/project/edit.blade.php",
+		"/C/xampp/htdocs/machineshop/resources/views/view-projects.blade.php",
+		"/C/xampp/htdocs/machineshop/public/js/global.js",
+		"/C/xampp/htdocs/machineshop/public/css/global.css",
+		"/C/xampp/htdocs/machineshop/resources/views/project/create.blade.php",
+		"/C/xampp/htdocs/machineshop/app/Http/Controllers/ImageController.php",
+		"/C/xampp/htdocs/machineshop/app/Models/ImageService.php",
+		"/C/xampp/htdocs/machineshop/app/Http/Controllers/ProjectController.php",
+		"/C/xampp/htdocs/machineshop/app/ImageHelper.php",
+		"/C/xampp/htdocs/machineshop/resources/views/layouts/main.blade.php",
+		"/C/xampp/htdocs/machineshop/resources/views/hire.blade.php",
+		"/C/xampp/htdocs/machineshop/database/migrations/2017_06_19_130055_create_image.php",
+		"/C/xampp/htdocs/machineshop/resources/views/news/edit.blade.php",
+		"/C/xampp/htdocs/machineshop/resources/views/news/news.blade.php",
+		"/C/xampp/htdocs/machineshop/resources/views/partials/footer.blade.php",
+		"/C/xampp/htdocs/machineshop/resources/views/partials/header.blade.php",
+		"/C/xampp/htdocs/machineshop/resources/views/news/show.blade.php",
+		"/C/xampp/htdocs/machineshop/resources/views/view-project-old.blade.php",
+		"/C/xampp/htdocs/machineshop/routes/web.php",
+		"/C/xampp/htdocs/machineshop/app/PopulateDatabase.php",
+		"/C/xampp/htdocs/machineshop/app/Http/Controllers/NewsController.php",
+		"/C/xampp/htdocs/machineshop/resources/views/news/index.blade.php",
+		"/C/xampp/htdocs/machineshop/resources/views/project/index.blade.php",
+		"/C/xampp/htdocs/machineshop/resources/views/news.blade.php",
+		"/C/xampp/htdocs/machineshop/resources/views/news/create.blade.php",
+		"/C/xampp/htdocs/machineshop/database/migrations/2017_06_19_121102_create_project_table.php",
+		"/C/xampp/htdocs/machineshop/database/migrations/2017_06_28_082225_create_project_category.php",
+		"/C/xampp/htdocs/machineshop/database/migrations/2017_06_19_130014_create_category.php",
+		"/C/xampp/htdocs/machineshop/database/migrations/2017_07_07_152018_create_news_table.php",
+		"/C/xampp/htdocs/machineshop/app/Project.php",
+		"/C/xampp/htdocs/machineshop/app/Category.php",
+		"/C/xampp/htdocs/machineshop/app/Category_Project.php",
+		"/C/xampp/htdocs/machineshop/resources/views/partials/head.blade.php",
+		"/C/xampp/htdocs/machineshop/resources/views/partials/search.blade.php",
+		"/C/xampp/htdocs/machineshop/public/css/global.min.css",
+		"/C/xampp/htdocs/machineshop/resources/views/contact.blade.php",
+		"/C/Users/alex/Desktop/view project/Machine Shop _ Special Effects.html",
+		"/C/xampp/htdocs/machineshop/resources/views/about.blade.php",
+		"/C/xampp/htdocs/machineshop/resources/views/project-highlight.blade.php",
+		"/C/xampp/htdocs/machineshop/public/js/app.js",
+		"/C/xampp/htdocs/machineshop/webpack.mix.js",
+		"/C/xampp/htdocs/machineshop/resources/assets/js/global.js",
+		"/C/xampp/htdocs/machineshop/resources/views/equipment-hire.blade.php",
+		"/C/xampp/htdocs/machineshop/app/Http/Controllers/StaticPagesController.php",
+		"/C/Users/alex/Desktop/machine shop about/Machine Shop _ About Us.html",
+		"/C/xampp/htdocs/machineshop/public/mix-manifest.json",
+		"/C/xampp/htdocs/machineshop/app/Image.php",
+		"/C/xampp/htdocs/machineshop/app/machineshop.php",
+		"/C/xampp/htdocs/machineshop/server.php",
+		"/C/xampp/htdocs/machineshop/public/index.php",
+		"/C/xampp/htdocs/machineshop/config/app.php",
+		"/C/xampp/htdocs/machineshop/app/Http/Controllers/CategoryProjectController.php",
+		"/C/xampp/htdocs/machineshop/app/Http/Controllers/CategoryController.php",
+		"/C/Users/alex/AppData/Roaming/Sublime Text 3/Packages/User/mine/dumpexit.sublime-snippet"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 90.0,
+		"where_history":
+		[
+			"<open files>"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			".project-carousel",
+			"saveCarouselImage",
+			"input",
+			"categorylanding ",
+			"about",
+			"pagination",
+			"project.",
+			"$Project",
+			"Projects",
+			"Category",
+			"project-box:hover",
+			".project-box:hover img",
+			"box img",
+			".js",
+			"/media/[0-9]*/",
+			"/media/([0-9]*)",
+			"(/media/[0-9]*)",
+			"(/media/[0-9]*)/",
+			"/media/([0-9]*)/",
+			"/media/[0-9]*/",
+			"/media/.*/",
+			"/img/article/",
+			"/img/article/*./",
+			"/img/article/.*/",
+			"/img/article/*./",
+			"/img/article/",
+			"save",
+			"  ",
+			"https://www.youtube.com/watch?time_continue=1&v=",
+			"https://youtu.be/",
+			"https://www.youtube.com/watch?v=",
+			"getImageByType",
+			", $heading",
+			"', $heading,",
+			"path",
+			"imageToSave"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+			"/img/staff/",
+			"/img/staff/$1",
+			"/image/staff/$1/"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/C/Users/alex/Desktop/machine shop view single project/Machine Shop _ Sony _ 4K TV volcano eruption.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 11566,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3753,
+								7135
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1260.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "siteDumpViewSingleProject.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"viewproejct",
+				"resources\\views\\view-project.blade.php"
+			],
+			[
+				"viewprojects",
+				"resources\\views\\view-projects.blade.php"
+			],
+			[
+				"globalcss",
+				"public\\css\\global.css"
+			],
+			[
+				"globaljs",
+				"public\\js\\global.js"
+			],
+			[
+				"imageser",
+				"app\\Models\\ImageService.php"
+			],
+			[
+				"create.blad",
+				"resources\\views\\project\\create.blade.php"
+			],
+			[
+				"projectcontr",
+				"app\\Http\\Controllers\\ProjectController.php"
+			],
+			[
+				"projectedit",
+				"resources\\views\\project\\edit.blade.php"
+			],
+			[
+				"projectcontro",
+				"app\\Http\\Controllers\\ProjectController.php"
+			],
+			[
+				"viewproject",
+				"resources\\views\\view-project.blade.php"
+			],
+			[
+				"global.css",
+				"public\\css\\global.css"
+			],
+			[
+				"hire",
+				"resources\\views\\hire.blade.php"
+			],
+			[
+				"projectcon",
+				"app\\Http\\Controllers\\ProjectController.php"
+			],
+			[
+				"nescontrol",
+				"app\\Http\\Controllers\\NewsController.php"
+			],
+			[
+				"popula",
+				"app\\PopulateDatabase.php"
+			],
+			[
+				"popu",
+				"app\\PopulateDatabase.php"
+			],
+			[
+				"popup",
+				"app\\PopulateDatabase.php"
+			],
+			[
+				"vewprojects",
+				"resources\\views\\view-projects.blade.php"
+			],
+			[
+				"about.",
+				"resources\\views\\about.blade.php"
+			],
+			[
+				"head",
+				"resources\\views\\partials\\head.blade.php"
+			],
+			[
+				"projects",
+				"resources\\views\\view-projects.blade.php"
+			],
+			[
+				"about",
+				"resources\\views\\about.blade.php"
+			],
+			[
+				"contact",
+				"resources\\views\\contact.blade.php"
+			],
+			[
+				"pagecontrol",
+				"app\\Http\\Controllers\\StaticPagesController.php"
+			],
+			[
+				"vewproject",
+				"resources\\views\\view-project.blade.php"
+			],
+			[
+				"indexbl",
+				"resources\\views\\project\\index.blade.php"
+			],
+			[
+				"create",
+				"resources\\views\\project\\create.blade.php"
+			],
+			[
+				"editbl",
+				"resources\\views\\project\\edit.blade.php"
+			],
+			[
+				"projectcontrol",
+				"app\\Http\\Controllers\\ProjectController.php"
+			],
+			[
+				"viewproj",
+				"resources\\views\\view-projects.blade.php"
+			],
+			[
+				"index",
+				"resources\\views\\project\\index.blade.php"
+			],
+			[
+				"imageserv",
+				"app\\Models\\ImageService.php"
+			],
+			[
+				"imgcontrol",
+				"app\\Http\\Controllers\\ImageController.php"
+			],
+			[
+				"images",
+				"app\\Models\\ImageService.php"
+			],
+			[
+				"inde",
+				"resources\\views\\project\\index.blade.php"
+			],
+			[
+				"editbld",
+				"resources\\views\\project\\edit.blade.php"
+			],
+			[
+				"imagecontrol",
+				"app\\Http\\Controllers\\ImageController.php"
+			],
+			[
+				"indexbla",
+				"resources\\views\\project\\index.blade.php"
+			],
+			[
+				"edit.bla",
+				"resources\\views\\project\\edit.blade.php"
+			],
+			[
+				"createblade",
+				"resources\\views\\project\\create.blade.php"
+			],
+			[
+				"appj",
+				"public\\js\\app.js"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"D:\\sublime projects\\machineshop.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 457.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

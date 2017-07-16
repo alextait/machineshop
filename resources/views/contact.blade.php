@@ -1,4 +1,6 @@
 
+@section('title', '| Contact')
+
 @include('partials.head')
 
 

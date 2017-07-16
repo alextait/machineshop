@@ -1,13 +1,9 @@
 
 @extends('layouts.main')
 
-
-
+@section('title', '| Create Project')
 
 @section('stylesheets')
-
-  
-    
     <script>
         tinymce.init({
             selector: 'textarea'
@@ -15,7 +11,7 @@
             , menubar : "false"
         });
     </script>
-
+    {{Html::style('css/select2.min.css')}}
 @endsection
 
 
@@ -123,11 +119,28 @@
 
                 </div>
 
-  
+                <h3>Tags</h3>
+                <div class="row">  
+                     <div class="column-12">  
+                        <label for="tags" />Tags</label>  
+                        <select name="tags[]" class="form-control select2-multi" multiple="multiple">
+                            <option>Select</option>    
+                            @foreach($tags as $tag)
+                                 <option value="{{$tag->id}}">{{$tag->name}}</option>    
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+
             </form> 
-
-
         </section>
     </div>
     
+@endsection
+
+@section('scripts')
+    {!! Html::script('js/select2.min.js') !!}
+    <script type="text/javascript">
+        $('.select2-multi').select2();
+    </script>
 @endsection

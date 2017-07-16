@@ -1924,3 +1924,6 @@ header .navigation a:hover {
 .modal-footer:after {
     clear: both;
 }
+
+/*Alex Changes*/
+li{color:black;}

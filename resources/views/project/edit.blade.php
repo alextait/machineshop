@@ -2,10 +2,7 @@
 @extends('layouts.main')
 
 
-@section('stylesheets')
-
-  
-   
+@section('stylesheets')  
 	<script>
 		tinymce.init({
 			selector: 'textarea'
@@ -13,7 +10,7 @@
 			, menubar : "false"
 		});
 	</script>
-
+	 {{Html::style('css/select2.min.css')}}
 @endsection
 
 
@@ -97,6 +94,15 @@
 
 				<hr />
 				
+				<div class="row">  			
+                	<h1>Tags</h1>
+                     <div class="column-12">  
+						{{ Form::label('tags', 'Tags:', ['class' => 'form-spacing-top']) }}
+						{{ Form::select('tags[]', $tags, null, ['class' => 'form-control select2-multi', 'multiple' => 'multiple']) }}
+                    </div>
+                </div>
+
+
 				<hr />
 				<div class="row">
 					<div class="column-6">
@@ -130,6 +136,7 @@
 				</div>
 				<hr />
 			{!! Form::close() !!}  
+
 
 				
 				<div class="row">
@@ -214,11 +221,16 @@
 					
 						 {!! Form::close() !!}  
 
-				</div>
-		   
-
-
+					</div>
+				</div>	
 		</section>
 	</div>
 	
+@endsection
+
+@section('scripts')
+    {!! Html::script('js/select2.min.js') !!}
+     <script type="text/javascript">
+        $('.select2-multi').select2();
+    </script>
 @endsection

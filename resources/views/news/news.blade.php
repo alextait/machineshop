@@ -1,3 +1,5 @@
+@section('title', '| News')
+
 
 @extends('layouts.main')
 
@@ -26,14 +28,9 @@
                 </div>
             </div>
         @endforeach
-       
-
 
         <div class="pagination-wrapper">
         <ul class="pagination" role="pagination">
-
-
-
 
         </ul>
 </div>

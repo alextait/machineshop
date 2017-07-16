@@ -13,11 +13,13 @@ class Project extends Model
 		return $this->belongsToMany('App\Category', 'category_project' );
 	}
 
+    public function tags(){
+    	return $this->belongsToMany('App\Tag');
+    }
+
 	public function images()
     {
     	return $this->hasMany('App\Image');
     }
-
-    
     
 }

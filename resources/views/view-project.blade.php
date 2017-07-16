@@ -1,6 +1,7 @@
 
-
-
+@section('title', '| View Project')
+@section('description', $Project->heading)
+@section('keywords', $keywords)
 
 @include('partials.head')
 
@@ -10,9 +11,7 @@
                 
         @include('partials.header')
 
-
-
-         @php
+        @php
             $thumbFile = '';
             $featuredFile = '';
             $extraImages = array();
@@ -33,6 +32,15 @@
                 
         <div class="background-image" style="background-image:url('/img/article/{!!$Project->id!!}/{{$featuredFile}}"></div>
         <div class="image-overlay"></div>
+        <div class="container">
+    <div class="breadcrumb-container">
+    
+    <ul class="">
+        
+    </ul>
+
+    </div>
+</div>
             
         <div class="banner-page">
             <div class="banner-text center">
@@ -44,9 +52,6 @@
 
         <section>
             <div class="container">
-
-               
-
                 <div class="row">
                     <div class="column-4 project-carousel">
                         <div class="swiper-container">

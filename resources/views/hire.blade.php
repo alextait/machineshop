@@ -1,5 +1,5 @@
 
-
+@section('title', '| Hire')
 
 @include('partials.head')
 

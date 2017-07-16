@@ -7,6 +7,7 @@ use App\Category;
 use App\Category_Project;
 use App\Image;
 use App\Models\ImageService;
+use App\Tag;
 use ImageTool;
 use DB;
 use Illuminate\Http\Request;
@@ -17,8 +18,6 @@ class ProjectController extends Controller
     
     //
     public function getProjectHighlight(){
-        
-
        // $Projects = Project::with('category', 'featured')->toSql();
         $Projects = Project::whereHas('categories', function($query){
             $query->where('category', '=', 'Highlight');
@@ -80,11 +79,10 @@ class ProjectController extends Controller
        	return  $this->getProjectList('Special Effects', 'special-effects', $aboutSection, $categoryid , $parentCategoryID);
     }
 
-
+    //This needs to be renamed as its not really accurate.. its not a listing.
     public function getProjectList($pagetitle, $pagename, $aboutSection, $categoryid, $parentCategoryID){
        $subCategoryItems  =  $this->getSubCategoryItems( $parentCategoryID);
        
-    
         //Get array of all categories in tree
         $categories =  [(int)$categoryid];
         $SubCategories  = Category::where('parentCategory_id', $categoryid)->pluck('id')->toArray();
@@ -109,17 +107,24 @@ class ProjectController extends Controller
 
     }
 
-    public function getViewProject($Projectid){
-        $Project = Project::find($Projectid);
-        return view('view-project') 
-            ->with('Project', $Project);
+    public function getViewSearchResults(Request $request){
+        $search = $request->search;
+        $projects = Project::whereHas("tags", function($query) use ($search) {
+            $query->where('tags.name', 'like', '%' .  $search  . '%');
+        })->get();
+        return view('project.results')->with('projects', $projects)->with('search', $search);
     }
 
+    public function getViewProject($Projectid){
+        $Project = Project::find($Projectid);
+        $tags = $Project->tags()->get();
+        $keywords = $tags->implode('name', ', ');
+        return view('view-project')->with('Project', $Project)->with('keywords' ,  $keywords);
+    }
 
     public function getAbout(){
        return view('about');
     }
-
 
     public function updateImages($request, $Project){
         $alphaHeading = preg_replace('/[^a-z\d ]/i', '', $request->heading);
@@ -149,7 +154,6 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        //
        // $Projects = Project::orderBy('projectid', 'desc');
         $Projects = Project::all();
         return view('project.index')->with('Projects', $Projects);
@@ -162,13 +166,10 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        //
-
         $Categories = Category::all();
-        return view('project.create')->with('Categories', $Categories);
+        $tags = Tag::all();
+        return view('project.create')->with('Categories', $Categories)->with('tags', $tags);
     }
-
-   
 
 
     /**
@@ -177,8 +178,7 @@ class ProjectController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
+    public function store(Request $request){
 
         //Validate
         $this->validate($request, array(
@@ -192,6 +192,7 @@ class ProjectController extends Controller
         $Project->subheading = $request->subheading;
         $Project->detail = $request->detail;
         
+        //Parse youtube video URL
         $video_id = '';
         if (preg_match('%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i', $request->youtubelink, $match)) {
             $video_id = $match[1];
@@ -200,6 +201,9 @@ class ProjectController extends Controller
         $Project->youtubelink = $video_id;
         $Project->priority = $request->priority;
         $Project->save();
+
+        //Save the tags
+        $Project->tags()->sync($request->tags, false);
 
         //Save carousel
         $images=array();
@@ -273,10 +277,16 @@ class ProjectController extends Controller
         //Get post
         $Project = Project::find($projectid);
         $Categories = Category::all();
+        $tags = Tag::all();
+        $tags2 = array();
+        foreach ($tags as $tag) {
+            $tags2[$tag->id] = $tag->name;
+        }
         //Return the view and pass in the item
         return view('project.edit')
             ->with('Project', $Project)
             ->with('Categories', $Categories)
+            ->with('tags', $tags2)
            ;
     }
 
@@ -315,6 +325,9 @@ class ProjectController extends Controller
         
         //Update images
         $this->updateImages($request, $Project);
+
+        //Update the tags
+        $Project->tags()->sync($request->tags, true);
   
 
         //Add links to categorys

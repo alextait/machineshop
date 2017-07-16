@@ -1,4 +1,8 @@
+
+@section('title', '| View Projects')
+
 @include('partials.head')
+
 
 
 <body class="categorylanding menu-push">
