@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 class StaticPagesController extends Controller{
     
 
-
 	//
 	public function getHire(){
 		return view('hire');
@@ -17,8 +16,9 @@ class StaticPagesController extends Controller{
 		return view('equipment-hire');
 	}
 
-
-	  
+	public function getAdminHome(){
+		return view('admin.home');
+	}
 
 	//
 	public function getContact(){

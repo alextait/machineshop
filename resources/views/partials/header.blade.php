@@ -21,14 +21,17 @@
                     <li class="{{ Request::path() ==  'hire' ? 'active' : ''  }}">
                         <a href="/hire/">Hire</a>
                     </li>
-                    <li class="{{ Request::path() ==  'news' ? 'active' : ''  }}" >
-                        <a  href="/news/">News</a>
+                    <li class="{{ Request::path() ==  'newslist' ? 'active' : ''  }}" >
+                        <a  href="/newslist">News</a>
                     </li>
                     <li class="{{ Request::path() ==  'about' ? 'active' : ''  }}">
                         <a href="/about/">About Us</a>
                     </li>
                     <li class="{{ Request::path() ==  'contact' ? 'active' : ''  }}">
                         <a href="/contact/">Contact</a>
+                    </li>
+                    <li class="{{ Request::path() ==  'admin' ? 'active' : ''  }}">
+                        <a href="/admin/">Admin</a>
                     </li>
                 </ul>
             </nav>

@@ -29,7 +29,7 @@ class ProjectController extends Controller
 
         $Projects = $Projects->get();
 
-        return view('project-highlight')
+        return view('project.project-highlight')
             ->with('Projects',  $Projects)
             ->with('pagename', 'highlight')
             ;
@@ -95,7 +95,7 @@ class ProjectController extends Controller
 
 
         // /Category::where('parentCategory_id', $categoryid)->get();
-        return view('view-projects')
+        return view('project.view-projects')
             ->with('Projects', $Projects)
             ->with('pagename',  $pagename)
             ->with('pagetitle',  $pagetitle)
@@ -119,7 +119,7 @@ class ProjectController extends Controller
         $Project = Project::find($Projectid);
         $tags = $Project->tags()->get();
         $keywords = $tags->implode('name', ', ');
-        return view('view-project')->with('Project', $Project)->with('keywords' ,  $keywords);
+        return view('project.view-project')->with('Project', $Project)->with('keywords' ,  $keywords);
     }
 
     public function getAbout(){
