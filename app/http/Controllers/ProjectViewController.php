@@ -13,10 +13,12 @@ use DB;
 use Illuminate\Http\Request;
 
 
+
+
 class ProjectViewController extends Controller
 {
     
-     //
+     //dfgdfg
     public function getProjectHighlight(){
        // $Projects = Project::with('category', 'featured')->toSql();
         $Projects = Project::whereHas('categories', function($query){
