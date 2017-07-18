@@ -12,22 +12,22 @@
 */
 
 //Project Routes
-Route::get('/', 'ProjectController@getProjectHighlight');
-Route::get('/special-projects/{categoryid}', ['uses' =>'ProjectController@getSpecialProjects'] );
-Route::get('/special-effects/{categoryid}',  ['uses' =>'ProjectController@getSpecialEffectsProjects'] );
+Route::get('/', 'ProjectViewController@getProjectHighlight');
+Route::get('/special-projects/{categoryid}', ['uses' =>'ProjectViewController@getSpecialProjects'] );
+Route::get('/special-effects/{categoryid}',  ['uses' =>'ProjectViewController@getSpecialEffectsProjects'] );
 //??? Perhaps this should be taken over by the resource show event????
-Route::get('/view-project/{projectid}',  ['uses' =>'ProjectController@getViewProject'] );
-Route::post('/project/results',  ['uses' =>'ProjectController@getViewSearchResults'] )->name('project.results');;
+Route::get('/view-project/{projectid}',  ['uses' =>'ProjectViewController@getViewProject'] );
+Route::post('/project/results',  ['uses' =>'ProjectViewController@getViewSearchResults'] )->name('project.results');;
 
 //Other Links
 Route::get('/hire', 'StaticPagesController@getHire');
 Route::get('/hire/equipment-hire', 'StaticPagesController@getEquipmentHire');
 
-Route::get('/about', 'ProjectController@getAbout');
+Route::get('/about', 'ProjectViewController@getAbout');
 Route::get('/contact', 'StaticPagesController@getContact');
 
 //Admin
-Route::get('/admin', 'StaticPagesController@getAdminHome');
+Route::get('/admin', 'AdminController@getAdminHome');
 
 
 Route::resource('tags' , 'TagController', ['except' => 'create']);

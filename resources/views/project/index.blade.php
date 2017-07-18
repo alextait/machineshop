@@ -2,6 +2,12 @@
 @extends('layouts.main')
 
 
+@section('stylesheets')
+    <style>
+    th{text-align: left;}
+    </style>
+@endsection
+
 @section('content')
 
 	<div class="container">
@@ -23,12 +29,11 @@
 				<th>Header</th>
 				<th>Body</th>
 				<th>Created At</th>
+				<th>Priority</th>
 				<th></th>
 			</thead>
 			<tbody>
-				
 				@foreach ($Projects as $Project)
-					
 					<tr>
 						<th>{{ $Project->id }}</th>
 						<td>{{ $Project->heading }}</td>
@@ -37,6 +42,23 @@
 						</td>
 						<td>
 							{{ date('M j, Y', strtotime($Project->created_at)) }}
+						</td>
+						<td>
+							@php
+								$readablePriority = '';
+								switch($Project->priority){
+								    case '1':
+								        $readablePriority = 'High';
+								        break;
+								    case '2':
+								    	$readablePriority = 'Medium';
+								        break;
+								    case '3':
+								        $readablePriority = 'Low';
+								        break;
+								}
+							@endphp
+							{{ $readablePriority }}
 						</td>
 						<td style="text-align:right;">
 							<div class="btn-group" role="group" aria-label="Basic example">
