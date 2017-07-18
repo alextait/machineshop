@@ -30,9 +30,24 @@
                     <li class="{{ Request::path() ==  'contact' ? 'active' : ''  }}">
                         <a href="/contact/">Contact</a>
                     </li>
-                    <li class="{{ Request::path() ==  'admin' ? 'active' : ''  }}">
-                        <a href="/admin/">Admin</a>
-                    </li>
+                    @if (Auth::check())
+                        <li class="{{ Request::path() ==  'admin' ? 'active' : ''  }}">
+                            <a href="/admin/">Admin</a>
+                        </li>
+                        <li class="">
+                            <a href="{{ url('/logout') }}"
+                                onclick="event.preventDefault();
+                                         document.getElementById('logout-form').submit();">
+                                Logout
+                            </a>
+
+                            <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                                {{ csrf_field() }}
+                            </form>
+
+                        </li>
+                   
+                    @endif
                 </ul>
             </nav>
         </div>

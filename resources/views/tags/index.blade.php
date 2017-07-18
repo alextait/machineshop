@@ -3,35 +3,14 @@
 @section('title', '| All Tags')
 
 @section('content')
+	<style>
+		.btn-delete{
+			padding: 5px;
+			font-size: 1em;
+		}
+	</style>
 	<div class="container">
 		<div class="row">
-			<div class="col-md-8">
-				<h1>Tags</h1>
-				<table class="table">
-					<thead>
-						<tr>
-							<th>#</th>
-							<th>Name</th>
-						</tr>
-					</thead>
-
-					<tbody>
-						@foreach ($tags as $tag)
-						<tr>
-							<th>{{ $tag->id }}</th>
-							<td>{{ $tag->name }}</td>
-							<td>
-								{!! Form::open(['route' => ['tags.destroy', $tag->id ], 'method' => 'DELETE']) !!}
-									{{ Form::submit('Delete', ['class' => 'btn btn-secondary btn-block btn-h1-spacing']) }}
-								{!! Form::close() !!}
-							</td>
-						</tr>
-
-						@endforeach
-					</tbody>
-				</table>
-			</div> <!-- end of .col-md-8 -->
-
 			<div class="col-md-3">
 				<div class="well">
 					{!! Form::open(['route' => 'tags.store', 'method' => 'POST']) !!}
@@ -43,6 +22,22 @@
 					
 					{!! Form::close() !!}
 				</div>
+			</div>
+		</div>	
+		<hr />
+		<h1>Tags</h1>
+		<div class="row">
+			<div class="column-12">
+				@foreach ($tags as $tag)
+					
+					<div class="pull-left" style="margin-right:20px;">
+						{{ $tag->name }}
+					
+						{!! Form::open(['route' => ['tags.destroy', $tag->id ], 'method' => 'DELETE']) !!}
+							{{ Form::submit('X', ['class' => 'btn btn-delete']) }}
+						{!! Form::close() !!}
+					</div>
+				@endforeach
 			</div>
 		</div>
 	</div>

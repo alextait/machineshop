@@ -48,3 +48,7 @@ Route::resource('news' , 'NewsController');
 
 Route::get('/newslist', 'NewsController@getNews');
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

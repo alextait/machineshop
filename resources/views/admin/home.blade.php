@@ -18,7 +18,6 @@
         <h1>
             Admin
         </h1>
-        
         <section>
             <ul>
                 <li>
@@ -29,6 +28,11 @@
                 <li>
                     <a href="{{url('/news')}}">
                         News Admin
+                    </a>
+                </li>
+                <li>
+                    <a href="{{url('/tags')}}">
+                        Tag Admin
                     </a>
                 </li>
             </ul>
