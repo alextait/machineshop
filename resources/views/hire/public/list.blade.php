@@ -1,9 +1,13 @@
 
 @section('title', '| View Projects')
 
-@section('stylesheets')
 
-@endsection
+<style>
+    .hire-item{
+        margin-bottom:20px !important;
+    }
+</style>
+
 
 @include('partials.head')
 
@@ -15,22 +19,21 @@
         <section>
             <div class="container">
                 
-            
+                <div class="row">
                 @foreach($hires as $hire)
-                     <h2>
-                         {{$hire->heading}}
-                    </h2>
-                    <div class="row">
-                          <div class="column-3">                        
-                            {!!$hire->detail!!}
-                        </div>
-                        <div class="column-3">
-                            <img class="img" src="{{asset('img/hire/' . $hire->id . '/' . $hire->image)}}">
-                        </div>
+                    
+                    <div class="column-3 hire-item">                        
+                        <h2>
+                            {{$hire->heading}}
+                        </h2>   
+                        <img class="img" src="{{asset('img/hire/' . $hire->image)}}">
+                        <br /><br />
+                        {!!$hire->detail!!}
                     </div>
+               
                 @endforeach
 
-
+                </div>
             </div>
         </section>
     </div>

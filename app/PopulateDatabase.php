@@ -21,6 +21,9 @@ class PopulateDatabase
            if($table  == 'HireCategories'){
                 $this->populateHireCategories();
            }
+           if($table  == 'Hire'){
+                $this->populateHire();
+           }
         }else{
             $this->truncateAll();
             $this->populateCategoryData();
@@ -38,6 +41,62 @@ class PopulateDatabase
         $this->populateHireCategoryData();
         echo('Hire Category Data populated');
     }
+
+    public function populateHire(){
+        $Hire = new Hire();
+        $Hire->delete();
+        $this->populateHireData();
+        echo('Hire Data populated');
+    }
+
+    public function populateHireData(){
+        $lorum = 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&quot;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum';
+     
+
+        $Hire = new Hire();
+        $Hire->heading = 'Confetti Droper';
+        $Hire->hire_category_id = 1;
+        $Hire->detail = $lorum;
+        $Hire->image = 'confettidropper.jpg';
+        $Hire->save();
+        //
+        $Hire = new Hire();
+        $Hire->heading = 'Large Bubble Machine';
+        $Hire->hire_category_id = 1;
+        $Hire->detail = $lorum;
+        $Hire->image = 'largebubblemachine.jpg';
+        $Hire->save();
+        //
+        $Hire = new Hire();
+        $Hire->heading = 'Large Confetti Cannon';
+        $Hire->hire_category_id = 1;
+        $Hire->detail = $lorum;
+        $Hire->image = 'largeconfetticannon.jpg';
+        $Hire->save();
+        //
+        $Hire = new Hire();
+        $Hire->heading = 'Small Bubble Machine';
+        $Hire->hire_category_id = 1;
+        $Hire->detail = $lorum;
+        $Hire->image = 'smallbubblemachine.jpg';
+        $Hire->save();
+        //
+        $Hire = new Hire();
+        $Hire->heading = 'Small Confetti Cannon';
+        $Hire->hire_category_id = 1;
+        $Hire->detail = $lorum;
+        $Hire->image = 'smallconfetticannondetail.jpg';
+        $Hire->save();
+        //
+        $Hire = new Hire();
+        $Hire->heading = 'Swirl Fan';
+        $Hire->hire_category_id = 1;
+        $Hire->detail = $lorum;
+        $Hire->image = 'swirlfan.jpg';
+        $Hire->save();
+    }
+
+
 
     public function populateHireCategoryData(){
         //
