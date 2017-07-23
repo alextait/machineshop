@@ -19,7 +19,7 @@
                         <a href="/special-projects/2/">Special Projects</a>
                     </li>
                     <li class="{{ Request::path() ==  'hire' ? 'active' : ''  }}">
-                        <a href="/hire/">Hire</a>
+                        <a href="{{ route('hire.public.home') }}">Hire</a>
                     </li>
                     <li class="{{ Request::path() ==  'newslist' ? 'active' : ''  }}" >
                         <a  href="/newslist">News</a>

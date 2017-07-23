@@ -35,6 +35,11 @@
                         Tag Admin
                     </a>
                 </li>
+                <li>
+                    <a href="{{url('/hire')}}">
+                        Hire Admin
+                    </a>
+                </li>
             </ul>
         </section>
     </div>

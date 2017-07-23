@@ -73,4 +73,6 @@ class ImageService extends Model
         $image->type =  $type;
         $Project->images()->save($image);
     }
+
+    
 }

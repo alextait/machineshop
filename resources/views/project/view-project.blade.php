@@ -97,13 +97,6 @@
     @include('partials.search')
 
     @include('partials.footer')
-
-    {{--     <script type="text/javascript" src="/scripts/vendor/jquery-1.11.3.min.js"></script>
-    <script type="text/javascript" src="/scripts/vendor/swiper.jquery.min.js"></script>
-    <script type="text/javascript" src="/scripts/vendor/jquery.validate.min.js"></script>
-    <script type="text/javascript" src="/scripts/vendor/jquery.validate.unobtrusive.min.js"></script>
-    <script type="text/javascript" src="/scripts/vendor/modal.min.js"></script>
-    <script type="text/javascript" src="/scripts/global.min.js"></script> --}}
     
 
     <script>

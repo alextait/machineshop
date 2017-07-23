@@ -9,21 +9,82 @@ use App\News;
 use App\ProjectToCategory;
 use App\ProjectTree;
 use App\Category_Project;
+use App\HireCategory;
 
 
 
 class PopulateDatabase 
 {
 
-    public function populateData(){
-        $this->truncateAll();
-        $this->populateCategoryData();
-        $this->populateProjectData();
-        $this->populateImageData();
-        $this->linkCategoriesToProjects();
-        $this->populateNews();   
-        echo('Data populated');
+    public function populateData($table = ''){
+        if($table != ''){
+           if($table  == 'HireCategories'){
+                $this->populateHireCategories();
+           }
+        }else{
+            $this->truncateAll();
+            $this->populateCategoryData();
+            $this->populateProjectData();
+            $this->populateImageData();
+            $this->linkCategoriesToProjects();
+            $this->populateNews();   
+            echo('Data populated');
+        }
     }
+
+    public function populateHireCategories(){
+        $HireCategory = new HireCategory();
+        $HireCategory->delete();
+        $this->populateHireCategoryData();
+        echo('Hire Category Data populated');
+    }
+
+    public function populateHireCategoryData(){
+        //
+        $HireCategory = new HireCategory();
+        $HireCategory->id = 1;
+        $HireCategory->title = 'Confetti';
+        $HireCategory->image = strToLower($HireCategory->title . '.jpg');
+        $HireCategory->save();
+        //
+        $HireCategory = new HireCategory();
+        $HireCategory->id = 2;
+        $HireCategory->title = 'Fire';
+        $HireCategory->image = strToLower($HireCategory->title . '.jpg');
+        $HireCategory->save();
+        //
+        $HireCategory = new HireCategory();
+        $HireCategory->id = 3;
+        $HireCategory->title = 'Motion';
+        $HireCategory->image = strToLower($HireCategory->title . '.jpg');
+        $HireCategory->save();
+        //
+        $HireCategory = new HireCategory();
+        $HireCategory->id = 4;
+        $HireCategory->title = 'Smoke';
+        $HireCategory->image = strToLower($HireCategory->title . '.jpg');
+        $HireCategory->save();
+        //
+        $HireCategory = new HireCategory();
+        $HireCategory->id = 5;
+        $HireCategory->title = 'Snow';
+        $HireCategory->image = strToLower($HireCategory->title . '.jpg');
+        $HireCategory->save();
+        //
+        $HireCategory = new HireCategory();
+        $HireCategory->id = 6;
+        $HireCategory->title = 'Water';
+        $HireCategory->image = strToLower($HireCategory->title . '.jpg');
+        $HireCategory->save();
+        //
+        $HireCategory = new HireCategory();
+        $HireCategory->id = 7;
+        $HireCategory->title = 'Wind';
+        $HireCategory->image = strToLower($HireCategory->title . '.jpg');
+        $HireCategory->save();
+    }
+
+
 
     public function truncateAll(){
        

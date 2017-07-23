@@ -19,12 +19,12 @@
             </div>
             <div class="row">
                 <div class="projects-container">
-                        <div class="column-6">
-                            <a href="/hire/equipment-hire/" class="project-box">
-                                <img src="/img/equipment_hire.jpg" alt="project-name" />
-                                <h4 class="image-overlay-title">Equipment Hire</h4>
-                            </a>
-                        </div>
+                    <div class="column-6">
+                        <a href="{{route('hire.public.listequipmenthire')}}" class="project-box">
+                            <img src="/img/equipment_hire.jpg" alt="project-name" />
+                            <h4 class="image-overlay-title">Equipment Hire</h4>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>

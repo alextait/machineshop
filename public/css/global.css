@@ -1232,7 +1232,6 @@ header .navigation a:hover {
         float: left;
         display: block;
         width: 18.91643%
-
     }
     .project-column:nth-child(2n+1) {
         clear: none;
@@ -1243,6 +1242,7 @@ header .navigation a:hover {
     .project-column:nth-child(5n+1) {
         clear: left;
     }
+
 }
 
 .styleguide-colours li:nth-child(3n+1), .styleguide-logo:nth-child(3n+1) {
