@@ -43,58 +43,11 @@ class PopulateDatabase
     }
 
     public function populateHire(){
-        $Hire = new Hire();
-        $Hire->delete();
+        Hire::truncate();
         $this->populateHireData();
         echo('Hire Data populated');
     }
 
-    public function populateHireData(){
-        $lorum = 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&quot;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum';
-     
-
-        $Hire = new Hire();
-        $Hire->heading = 'Confetti Droper';
-        $Hire->hire_category_id = 1;
-        $Hire->detail = $lorum;
-        $Hire->image = 'confettidropper.jpg';
-        $Hire->save();
-        //
-        $Hire = new Hire();
-        $Hire->heading = 'Large Bubble Machine';
-        $Hire->hire_category_id = 1;
-        $Hire->detail = $lorum;
-        $Hire->image = 'largebubblemachine.jpg';
-        $Hire->save();
-        //
-        $Hire = new Hire();
-        $Hire->heading = 'Large Confetti Cannon';
-        $Hire->hire_category_id = 1;
-        $Hire->detail = $lorum;
-        $Hire->image = 'largeconfetticannon.jpg';
-        $Hire->save();
-        //
-        $Hire = new Hire();
-        $Hire->heading = 'Small Bubble Machine';
-        $Hire->hire_category_id = 1;
-        $Hire->detail = $lorum;
-        $Hire->image = 'smallbubblemachine.jpg';
-        $Hire->save();
-        //
-        $Hire = new Hire();
-        $Hire->heading = 'Small Confetti Cannon';
-        $Hire->hire_category_id = 1;
-        $Hire->detail = $lorum;
-        $Hire->image = 'smallconfetticannondetail.jpg';
-        $Hire->save();
-        //
-        $Hire = new Hire();
-        $Hire->heading = 'Swirl Fan';
-        $Hire->hire_category_id = 1;
-        $Hire->detail = $lorum;
-        $Hire->image = 'swirlfan.jpg';
-        $Hire->save();
-    }
 
 
 
@@ -151,12 +104,10 @@ class PopulateDatabase
        // $Project = new Project();
        // $Project->truncate(); 
         $Category = new Category();
-        $Category->delete();   
+        Category::truncate();   
 
         $News = new News();
-        $News->delete();  
-
-
+        News::truncate();   
 
         //$Project = new Project();
         //$Project->truncate(); 
@@ -472,5 +423,459 @@ class PopulateDatabase
     }   
 
        
+    public function populateHireData(){
+        $lorum = 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&quot;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum';
+     
 
+        $Hire = new Hire();
+        $Hire->heading = 'Confetti Droper';
+        $Hire->hire_category_id = 1;
+        $Hire->detail = $lorum;
+        $Hire->image = 'confettidropper.jpg';
+        $Hire->save();
+        //
+        $Hire = new Hire();
+        $Hire->heading = 'Large Bubble Machine';
+        $Hire->hire_category_id = 1;
+        $Hire->detail = $lorum;
+        $Hire->image = 'largebubblemachine.jpg';
+        $Hire->save();
+        //
+        $Hire = new Hire();
+        $Hire->heading = 'Large Confetti Cannon';
+        $Hire->hire_category_id = 1;
+        $Hire->detail = $lorum;
+        $Hire->image = 'largeconfetticannon.jpg';
+        $Hire->save();
+        //
+        $Hire = new Hire();
+        $Hire->heading = 'Small Bubble Machine';
+        $Hire->hire_category_id = 1;
+        $Hire->detail = $lorum;
+        $Hire->image = 'smallbubblemachine.jpg';
+        $Hire->save();
+        //
+        $Hire = new Hire();
+        $Hire->heading = 'Small Confetti Cannon';
+        $Hire->hire_category_id = 1;
+        $Hire->detail = $lorum;
+        $Hire->image = 'smallconfetticannondetail.jpg';
+        $Hire->save();
+        //
+        $Hire = new Hire();
+        $Hire->heading = 'Swirl Fan';
+        $Hire->hire_category_id = 1;
+        $Hire->detail = $lorum;
+        $Hire->image = 'swirlfan.jpg';
+        $Hire->save();
+
+
+        //FIRE
+
+        $Hire = new Hire();
+        $Hire->heading = 'Coals';
+        $Hire->hire_category_id = 2;
+        $Hire->detail = $lorum;
+        $Hire->image = 'coals.jpg';
+        $Hire->save();
+
+
+        $Hire = new Hire();
+        $Hire->heading = 'Flamebar';
+        $Hire->hire_category_id = 2;
+        $Hire->detail = $lorum;
+        $Hire->image = 'flamebar.jpg';
+        $Hire->save();
+
+
+        $Hire = new Hire();
+        $Hire->heading = 'Gas Jets';
+        $Hire->hire_category_id = 2;
+        $Hire->detail = $lorum;
+        $Hire->image = 'gasjets.jpg';
+        $Hire->save();
+
+        $Hire = new Hire();
+        $Hire->heading = 'Gas Lances';
+        $Hire->hire_category_id = 2;
+        $Hire->detail = $lorum;
+        $Hire->image = 'gaslance.png';
+        $Hire->save();
+
+        $Hire = new Hire();
+        $Hire->heading = 'Gas Linky';
+        $Hire->hire_category_id = 2;
+        $Hire->detail = $lorum;
+        $Hire->image = 'gasslinky.jpg';
+        $Hire->save();
+
+        $Hire = new Hire();
+        $Hire->heading = 'Heat Haze';
+        $Hire->hire_category_id = 2;
+        $Hire->detail = $lorum;
+        $Hire->image = 'heathaze.jpg';
+        $Hire->save();
+
+        //MOTION
+        $Hire = new Hire();
+        $Hire->heading = '2ft Turn Table';
+        $Hire->hire_category_id = 3;
+        $Hire->detail = $lorum;
+        $Hire->image = '2ftturntable.jpg';
+        $Hire->save();
+
+        $Hire = new Hire();
+        $Hire->heading = '4ft Turn Table';
+        $Hire->hire_category_id = 3;
+        $Hire->detail = $lorum;
+        $Hire->image = '4ftturntable.jpg';
+        $Hire->save();
+
+        $Hire = new Hire();
+        $Hire->heading = '11ft Turn Table';
+        $Hire->hire_category_id = 3;
+        $Hire->detail = $lorum;
+        $Hire->image = '11ftturntable.jpg';
+        $Hire->save();
+
+        $Hire = new Hire();
+        $Hire->heading = '12 Inch Turn Table';
+        $Hire->hire_category_id = 3;
+        $Hire->detail = $lorum;
+        $Hire->image = '12inchturntable.jpg';
+        $Hire->save();
+
+        $Hire = new Hire();
+        $Hire->heading = 'High Speed Firing Box';
+        $Hire->hire_category_id = 3;
+        $Hire->detail = $lorum;
+        $Hire->image = 'highspeedfiringbox.jpg';
+        $Hire->save();
+
+        $Hire = new Hire();
+        $Hire->heading = 'Lock Off Chair';
+        $Hire->hire_category_id = 3;
+        $Hire->detail = $lorum;
+        $Hire->image = 'lockoffchairfront.JPG';
+        $Hire->save();
+
+        $Hire = new Hire();
+        $Hire->heading = 'Nitor Cannon';
+        $Hire->hire_category_id = 3;
+        $Hire->detail = $lorum;
+        $Hire->image = 'nitrocannon.jpg';
+        $Hire->save();
+
+        $Hire = new Hire();
+        $Hire->heading = 'Small Conveyor Belt';
+        $Hire->hire_category_id = 3;
+        $Hire->detail = $lorum;
+        $Hire->image = 'smallconveyorbelt.JPG';
+        $Hire->save();
+
+        $Hire = new Hire();
+        $Hire->heading = 'Swirl Generator';
+        $Hire->hire_category_id = 3;
+        $Hire->detail = $lorum;
+        $Hire->image = 'swirlgenerator.jpg';
+        $Hire->save();
+
+        $Hire = new Hire();
+        $Hire->heading = 'Swirl Rig';
+        $Hire->hire_category_id = 3;
+        $Hire->detail = $lorum;
+        $Hire->image = 'swirlrig.jpg';
+        $Hire->save();
+
+        $Hire = new Hire();
+        $Hire->heading = 'Treadmill';
+        $Hire->hire_category_id = 3;
+        $Hire->detail = $lorum;
+        $Hire->image = 'treadmill.jpg';
+        $Hire->save();
+
+        //SMOKE
+        $Hire = new Hire();
+        $Hire->heading = 'Artem Smoke Gun';
+        $Hire->hire_category_id = 4;
+        $Hire->detail = $lorum;
+        $Hire->image = 'artemsmokegun.jpg';
+        $Hire->save();
+
+        $Hire = new Hire();
+        $Hire->heading = 'Co2 Jet';
+        $Hire->hire_category_id = 4;
+        $Hire->detail = $lorum;
+        $Hire->image = 'co2jet.jpg';
+        $Hire->save();
+
+        $Hire = new Hire();
+        $Hire->heading = 'Jems Smoke Machine';
+        $Hire->hire_category_id = 4;
+        $Hire->detail = $lorum;
+        $Hire->image = 'jemsmokemachine.jpg';
+        $Hire->save();
+
+        $Hire = new Hire();
+        $Hire->heading = 'Large Outdoor Smoke Machine';
+        $Hire->hire_category_id = 4;
+        $Hire->detail = $lorum;
+        $Hire->image = 'largeoutdoorsmokemachine.jpg';
+        $Hire->save();
+
+        $Hire = new Hire();
+        $Hire->heading = 'Low Smoke Machine';
+        $Hire->hire_category_id = 4;
+        $Hire->detail = $lorum;
+        $Hire->image = 'lowsmokemachine.JPG';
+        $Hire->save();
+
+        $Hire = new Hire();
+        $Hire->heading = 'Micro Fog Machine';
+        $Hire->hire_category_id = 4;
+        $Hire->detail = $lorum;
+        $Hire->image = 'microfog.jpg';
+        $Hire->save();
+
+        $Hire = new Hire();
+        $Hire->heading = 'Mister';
+        $Hire->hire_category_id = 4;
+        $Hire->detail = $lorum;
+        $Hire->image = 'mister.jpg';
+        $Hire->save();
+
+        $Hire = new Hire();
+        $Hire->heading = 'Pea Souper';
+        $Hire->hire_category_id = 4;
+        $Hire->detail = $lorum;
+        $Hire->image = 'peasouper.jpg';
+        $Hire->save();
+
+
+        $Hire = new Hire();
+        $Hire->heading = 'Roadie Co2 Box';
+        $Hire->hire_category_id = 4;
+        $Hire->detail = $lorum;
+        $Hire->image = 'roadieco2box.jpg';
+        $Hire->save();
+
+        $Hire = new Hire();
+        $Hire->heading = 'Roadie Low Smoke';
+        $Hire->hire_category_id = 4;
+        $Hire->detail = $lorum;
+        $Hire->image = 'roadielowsmoke.jpg';
+        $Hire->save();
+
+
+        $Hire = new Hire();
+        $Hire->heading = 'Roadie  Smoke Machine';
+        $Hire->hire_category_id = 4;
+        $Hire->detail = $lorum;
+        $Hire->image = 'rodiesmokemachine.jpg';
+        $Hire->save();
+       
+
+        $Hire = new Hire();
+        $Hire->heading = 'Steamer';
+        $Hire->hire_category_id = 4;
+        $Hire->detail = $lorum;
+        $Hire->image = 'steamer.JPG';
+        $Hire->save();
+
+        $Hire = new Hire();
+        $Hire->heading = 'Viper Smoke Machine';
+        $Hire->hire_category_id = 4;
+        $Hire->detail = $lorum;
+        $Hire->image = 'vipersmokemachine.jpg';
+        $Hire->save();
+        
+        //Snow
+        $Hire = new Hire();
+        $Hire->heading = 'Antari Snow Machine';
+        $Hire->hire_category_id = 5;
+        $Hire->detail = $lorum;
+        $Hire->image = 'antari_sw_250_sneeuwmachine_angle.jpg';
+        $Hire->save();
+       
+
+        $Hire = new Hire();
+        $Hire->heading = 'Gibo Snow Dropper Fan';
+        $Hire->hire_category_id = 5;
+        $Hire->detail = $lorum;
+        $Hire->image = 'gibosnowdropperfan.jpg';
+        $Hire->save();
+
+        //Water
+        $Hire = new Hire();
+        $Hire->heading = '4 Cube';
+        $Hire->hire_category_id = 6;
+        $Hire->detail = $lorum;
+        $Hire->image = '4cubewithman.jpg';
+        $Hire->save();
+       
+        $Hire = new Hire();
+        $Hire->heading = 'Moving Rain Rig';
+        $Hire->hire_category_id = 6;
+        $Hire->detail = $lorum;
+        $Hire->image = 'movingrainrig.jpg';
+        $Hire->save();
+
+       
+        $Hire = new Hire();
+        $Hire->heading = 'Pool Heater';
+        $Hire->hire_category_id = 6;
+        $Hire->detail = $lorum;
+        $Hire->image = 'poolheater.JPG';
+        $Hire->save();
+
+        $Hire = new Hire();
+        $Hire->heading = 'Rain Bars';
+        $Hire->hire_category_id = 6;
+        $Hire->detail = $lorum;
+        $Hire->image = 'rainbars.jpeg';
+        $Hire->save();
+
+        $Hire = new Hire();
+        $Hire->heading = 'Rain Spinners';
+        $Hire->hire_category_id = 6;
+        $Hire->detail = $lorum;
+        $Hire->image = 'rainspinners.jpg';
+        $Hire->save();
+
+        $Hire = new Hire();
+        $Hire->heading = 'Rain Stand';
+        $Hire->hire_category_id = 6;
+        $Hire->detail = $lorum;
+        $Hire->image = 'rainstandsetup.jpg';
+        $Hire->save();
+
+        $Hire = new Hire();
+        $Hire->heading = 'Slime';
+        $Hire->hire_category_id = 6;
+        $Hire->detail = $lorum;
+        $Hire->image = 'slimeexample.jpg';
+        $Hire->save();
+
+        $Hire = new Hire();
+        $Hire->heading = 'Water Bowser';
+        $Hire->hire_category_id = 6;
+        $Hire->detail = $lorum;
+        $Hire->image = 'waterbowser.png';
+        $Hire->save();
+
+        $Hire = new Hire();
+        $Hire->heading = 'Water Curtain';
+        $Hire->hire_category_id = 6;
+        $Hire->detail = $lorum;
+        $Hire->image = 'watercurtain.jpg';
+        $Hire->save();
+
+        $Hire = new Hire();
+        $Hire->heading = 'Water Heater Tank';
+        $Hire->hire_category_id = 6;
+        $Hire->detail = $lorum;
+        $Hire->image = 'waterheatertank.jpg';
+        $Hire->save();
+
+        //WIND
+
+        $Hire = new Hire();
+        $Hire->heading = '10 inch elelctric fan';
+        $Hire->hire_category_id = 7;
+        $Hire->detail = $lorum;
+        $Hire->image = '10inchelelctricfan.JPG';
+        $Hire->save();
+
+        $Hire = new Hire();
+        $Hire->heading = '2ft fan';
+        $Hire->hire_category_id = 7;
+        $Hire->detail = $lorum;
+        $Hire->image = '2ftfan.JPG';
+        $Hire->save();
+
+        $Hire = new Hire();
+        $Hire->heading = '2ft petrol fan';
+        $Hire->hire_category_id = 7;
+        $Hire->detail = $lorum;
+        $Hire->image = '2ftpetrolfan.jpg';
+        $Hire->save();
+
+        $Hire = new Hire();
+        $Hire->heading = '3ft fan';
+        $Hire->hire_category_id = 7;
+        $Hire->detail = $lorum;
+        $Hire->image = '3ftfan.jpg';
+        $Hire->save();
+
+        $Hire = new Hire();
+        $Hire->heading = '4ft box fan';
+        $Hire->hire_category_id = 7;
+        $Hire->detail = $lorum;
+        $Hire->image = '4ftboxfan.jpg';
+        $Hire->save();
+
+        $Hire = new Hire();
+        $Hire->heading = '4ft Electric';
+        $Hire->hire_category_id = 7;
+        $Hire->detail = $lorum;
+        $Hire->image = '4ftelectricwindmachine2.jpg';
+        $Hire->save();
+
+        $Hire = new Hire();
+        $Hire->heading = 'airmovers';
+        $Hire->hire_category_id = 7;
+        $Hire->detail = $lorum;
+        $Hire->image = 'airmovers.jpg';
+        $Hire->save();
+
+        $Hire = new Hire();
+        $Hire->heading = 'gibo snow dropper fan';
+        $Hire->hire_category_id = 7;
+        $Hire->detail = $lorum;
+        $Hire->image = 'gibosnowdropperfan.JPG';
+        $Hire->save();
+
+        $Hire = new Hire();
+        $Hire->heading = 'grain blower';
+        $Hire->hire_category_id = 7;
+        $Hire->detail = $lorum;
+        $Hire->image = 'grainblower.jpg';
+        $Hire->save();
+
+        $Hire = new Hire();
+        $Hire->heading = 'grain blower';
+        $Hire->hire_category_id = 7;
+        $Hire->detail = $lorum;
+        $Hire->image = 'grainblowerwithspeedcontrol.jpg';
+        $Hire->save();
+
+        $Hire = new Hire();
+        $Hire->heading = 'petrol wind machine';
+        $Hire->hire_category_id = 7;
+        $Hire->detail = $lorum;
+        $Hire->image = 'petrolwindmachine.jpg';
+        $Hire->save();
+
+        $Hire = new Hire();
+        $Hire->heading = 'snail fan';
+        $Hire->hire_category_id = 7;
+        $Hire->detail = $lorum;
+        $Hire->image = 'snailfan.jpg';
+        $Hire->save();
+
+        $Hire = new Hire();
+        $Hire->heading = 'swirl fan';
+        $Hire->hire_category_id = 7;
+        $Hire->detail = $lorum;
+        $Hire->image = 'swirlfan.jpg';
+        $Hire->save();
+
+        $Hire = new Hire();
+        $Hire->heading = 'yellow fan';
+        $Hire->hire_category_id = 7;
+        $Hire->detail = $lorum;
+        $Hire->image = 'yellowfan2.jpg';
+        $Hire->save();
+
+    }
 }

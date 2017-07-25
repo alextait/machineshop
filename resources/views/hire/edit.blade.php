@@ -59,7 +59,7 @@
                         </select>
                     </div>
                 </div>
- <br />
+                <br />
                 {{-- Body --}}
                 <div class="row">   
                     <div class="column-12">     
@@ -73,7 +73,7 @@
                 <div class="row">   
                     <div class="column-6">     
                         <h3>Upload hire image</h3>
-                        <img src="{{asset('img/hire/' . $hire->id . '/' . $hire->image)}}">
+                        <img src="{{asset('img/hire/' . $hire->image)}}">
                     </div>
                     <div class="column-6">     
                         <label class=" btn-file">
