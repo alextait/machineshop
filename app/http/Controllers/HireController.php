@@ -12,7 +12,7 @@ class HireController extends Controller
 {
 
    
-    //
+    //get hire home page
     public function getHireHome(){
         return view('hire.public.home');
     }
