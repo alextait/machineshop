@@ -556,7 +556,7 @@ class PopulateDatabase
         $Hire->heading = 'Lock Off Chair';
         $Hire->hire_category_id = 3;
         $Hire->detail = $lorum;
-        $Hire->image = 'lockoffchairfront.JPG';
+        $Hire->image = 'lockoffchairfront.jpg';
         $Hire->save();
 
         $Hire = new Hire();
@@ -570,7 +570,7 @@ class PopulateDatabase
         $Hire->heading = 'Small Conveyor Belt';
         $Hire->hire_category_id = 3;
         $Hire->detail = $lorum;
-        $Hire->image = 'smallconveyorbelt.JPG';
+        $Hire->image = 'smallconveyorbelt.jpg';
         $Hire->save();
 
         $Hire = new Hire();
@@ -627,7 +627,7 @@ class PopulateDatabase
         $Hire->heading = 'Low Smoke Machine';
         $Hire->hire_category_id = 4;
         $Hire->detail = $lorum;
-        $Hire->image = 'lowsmokemachine.JPG';
+        $Hire->image = 'lowsmokemachine.jpg';
         $Hire->save();
 
         $Hire = new Hire();
@@ -679,7 +679,7 @@ class PopulateDatabase
         $Hire->heading = 'Steamer';
         $Hire->hire_category_id = 4;
         $Hire->detail = $lorum;
-        $Hire->image = 'steamer.JPG';
+        $Hire->image = 'steamer.jpg';
         $Hire->save();
 
         $Hire = new Hire();
@@ -725,7 +725,7 @@ class PopulateDatabase
         $Hire->heading = 'Pool Heater';
         $Hire->hire_category_id = 6;
         $Hire->detail = $lorum;
-        $Hire->image = 'poolheater.JPG';
+        $Hire->image = 'poolheater.jpg';
         $Hire->save();
 
         $Hire = new Hire();
@@ -783,14 +783,14 @@ class PopulateDatabase
         $Hire->heading = '10 inch elelctric fan';
         $Hire->hire_category_id = 7;
         $Hire->detail = $lorum;
-        $Hire->image = '10inchelelctricfan.JPG';
+        $Hire->image = '10inchelelctricfan.jpg';
         $Hire->save();
 
         $Hire = new Hire();
         $Hire->heading = '2ft fan';
         $Hire->hire_category_id = 7;
         $Hire->detail = $lorum;
-        $Hire->image = '2ftfan.JPG';
+        $Hire->image = '2ftfan.jpg';
         $Hire->save();
 
         $Hire = new Hire();
@@ -832,7 +832,7 @@ class PopulateDatabase
         $Hire->heading = 'gibo snow dropper fan';
         $Hire->hire_category_id = 7;
         $Hire->detail = $lorum;
-        $Hire->image = 'gibosnowdropperfan.JPG';
+        $Hire->image = 'gibosnowdropperfan.jpg';
         $Hire->save();
 
         $Hire = new Hire();
