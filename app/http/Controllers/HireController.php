@@ -12,10 +12,12 @@ class HireController extends Controller
 {
 
    
-    //get hire home page
+    //Test change
     public function getHireHome(){
+        
         return view('hire.public.home');
     }
+
 
 
     /**
@@ -116,7 +118,7 @@ class HireController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function saveHireImage($imageToSave,  $HireItem, $heading){
-        $path = public_path('img/hire/'  . $HireItem->id . '/');
+        $path = public_path('img/hire/');
         if(!file_exists( $path)){
             mkdir($path);
         }
