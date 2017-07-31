@@ -14,7 +14,7 @@
             <h1 class="center">Hire</h1>
             <div class="row">
                 <div class="category-summary">
-                    <p>Machine Shop have a large range of equipment available for hire - from floor effects to specialist triggering equipment to soft  rop weapons. We also offer specialist 3D services and high-speed shooting equipment. If you cannot see what you need call us!</p>
+                    <p>Machine Shop have a large range of equipment available for hire - from floor effects to specialist triggering equipment to soft prop weapons. We also offer specialist 3D services and high-speed shooting equipment. If you cannot see what you need call us!</p>
                 </div>
             </div>
             <div class="row">

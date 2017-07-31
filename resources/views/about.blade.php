@@ -28,7 +28,7 @@
                 <div class="about-summary">
                     <p>Established during 1993 in Acton Vale, we have since moved on to larger purpose fitted workshops in Park Royal. Most disciplines and processes are performed on site or with a small group of nominated specialists that we can trust to deliver to the high standards that we set for your projects. A full design through to manufacture facility is offered to turn your ideas into a reality.</p>
                     <p>Our history shows experience across a wide range of work that has allowed us to build our investment in plant, equipment and most importantly people. We have the facility to take your project forward to a successful result that will enable you to keep your clients coming back time and again.</p>
-                    <p>As of August 2013 we have completed 3600 jobs over the last 20 years, averaging 3.46 per week. We have never had a single day of business without a job going through the company - a fact that we are very proud of indeed. You can watch our anniversary showreel here.</p>
+                    <p>As of July 2017 we have completed over 5700 jobs over the past 24 years, averaging 3.46 per week. We have never had a single day of business without a job going through the company - a fact that we are very proud of indeed. You can watch our anniversary showreel here.</p>
                 </div>
                 <div class="staff">
                     <div class="team-carousel">
