@@ -30,7 +30,7 @@
             }
         @endphp
                 
-        <div class="background-image" style="background-image:url('/img/article/{!!$Project->id!!}/{{$featuredFile}}"></div>
+        <div class="background-image" style="background-image:url('/img/article/{!!$Project->id!!}/{{$featuredFile}}')"></div>
         <div class="image-overlay"></div>
         <div class="container">
     <div class="breadcrumb-container">
@@ -74,8 +74,10 @@
                     </div>
 
                     <div class="column-4 video-image" data-toggle="modal" data-target="#video">
+                        @if ($Project->youtubeLink != '')
                         <img src="http://img.youtube.com/vi/{!!$Project->youtubeLink!!}/0.jpg" alt="" />
                         <a class="overlay"><span class="icon icon-play"></span></a>
+                        @endif
                     </div>
                 </div>
             </div>
