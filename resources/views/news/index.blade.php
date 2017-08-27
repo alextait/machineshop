@@ -11,7 +11,7 @@
 				<h1>News Admin</h1>
 			</div>
 			<div class="col-md-6 pull-right">
-				<a href="/admin/news/create" class="btn btn-primary">Create New News Article</a>
+				<a href="/news/create" class="btn btn-primary">Create New News Article</a>
 			</div>
 		</div>
 
